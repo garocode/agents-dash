@@ -102,6 +102,9 @@ Deliver a local, SSR web dashboard that visualizes Claude Code and OpenCode usag
 - HTML embeds the client bundle via:
   - Dev: `<script type="module" src="/src/entry-client.tsx"></script>`
   - Prod: `<script type="module" src="/static/client.js"></script>`
+- Tooling requirements:
+  - `package.json` must include `"type": "module"` per Hono Vite plugins.
+  - Node >= 18.14.1 (Hono Node adapter requirement).
 
 ### Initial State Hydration Contract
 - SSR embeds a script tag: `window.__INITIAL_STATE__ = <json>`.
@@ -109,10 +112,15 @@ Deliver a local, SSR web dashboard that visualizes Claude Code and OpenCode usag
 - Client reads `window.__INITIAL_STATE__` in `entry-client.tsx` and hydrates without fetching.
 - Manual refresh replaces state from `/api/usage`.
 
-### Data Loading Semantics
-- SSR renders pages with real data on every request using the API/data layer.
-- Client hydration uses SSR-provided initial state (no automatic fetch on load).
-- Manual refresh triggers a client fetch to `/api/usage` and replaces state.
+### Initial State Shape (per route)
+- **Overview (`/`)**:
+  - `overview.daily`, `overview.weekly`, `overview.monthly`, `overview.sessions` populated from parallel API calls.
+- **Agent details (`/agents/:agent`)**:
+  - `agentReports.daily|weekly|monthly|session|blocks` populated (5 API calls).
+- **Session details (`/sessions/:id`)**:
+  - `sessionDetail` populated with one session object + optional children.
+- **Report details (`/reports/:period`)**:
+  - `report` populated from a single API call for the selected period.
 
 ---
 
@@ -246,7 +254,14 @@ References for expected fields:
   - Sessions: `data[].session`, `data[].lastActivity`, `data[].totalTokens`, `data[].costUSD`, `data[].models`.
 - **Blocks**:
   - Prefer fixture schema. If using `json-output.md`, map `data[].blockStart`, `data[].blockEnd`, `data[].isActive`, `data[].totalTokens`, `data[].costUSD`.
-  - If using `blocks-reports.md`, map `blocks[].startTime/endTime/isActive/tokenCounts.totalTokens/costUSD`.
+  - If using `blocks-reports.md`, map:
+    - `blockId`: `blocks[].id`
+    - `startTime`: `blocks[].startTime`
+    - `endTime`: `blocks[].endTime`
+    - `isActive`: `blocks[].isActive`
+    - `models`: `blocks[].models`
+    - `totalTokens`: sum of `tokenCounts.inputTokens + tokenCounts.outputTokens + tokenCounts.cacheCreationInputTokens + tokenCounts.cacheReadInputTokens`
+    - `costUSD`: `blocks[].costUSD`
 
 ### Current Period Computation (library + CLI)
 - Use plain JS Date in local timezone and format `YYYYMMDD` for CLI flags.
@@ -254,6 +269,21 @@ References for expected fields:
 - **Current week**: compute week start based on `startOfWeek` setting (default Sunday).
 - **Current month**: first day of month to today.
 - For library loaders (daily/monthly/session), fetch all data and filter in-memory by date string ranges using the computed windows.
+
+### Current Period CLI Invocation Rules
+Use CLI flags from `docs/ccusage/cli-options.md`:
+- **Daily (today)**: `--since YYYYMMDD --until YYYYMMDD`.
+- **Weekly (current week)**: `--since <weekStartYYYYMMDD> --until <todayYYYYMMDD> --start-of-week <setting>`.
+- **Monthly (current month)**: `--since <YYYYMM01> --until <todayYYYYMMDD>`.
+- **Sessions (current month)**: `--since <YYYYMM01> --until <todayYYYYMMDD>`.
+- **Blocks (overview)**: `--recent` (last 3 days).
+- **Blocks (details)**: `--since <YYYYMM01> --until <todayYYYYMMDD>`.
+- Apply `--timezone` and `--start-of-week` from local settings when present.
+
+### Session Scoping Rules
+- “Current” sessions = sessions whose `lastActivity` is within the current month window.
+- For overview, show the 10 most recent (by `lastActivity`) after filtering to the current month.
+- For details routes, list all sessions in the current month unless a specific session is selected.
 
 ### Offline / No-Network Enforcement
 - Always pass `--offline` for CLI invocations.
@@ -335,6 +365,7 @@ Task 1 → Task 2 → Task 3 → Task 4
     - `dev`: `vite`
     - `build`: `vite build --mode client && vite build`
     - `preview`: `node dist/index.js`
+  - Add `"type": "module"` to `package.json`.
 
   **Must NOT do**:
   - Do not reuse patterns or code from other projects in this workspace.
