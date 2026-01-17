@@ -37,50 +37,11 @@ Build a web dashboard for local agents (Claude Code, OpenCode) using TypeScript 
 
 ---
 
-## Work Objectives
-
-### Core Objective
-Deliver a local, SSR web dashboard that visualizes Claude Code and OpenCode usage via ccusage tooling, with manual refresh, overview + detail routes, and a modern UI.
-
-### Concrete Deliverables
-- Hono/Node SSR server with React hydration and Vite dev/build pipeline (Hono Vite plugins).
-- API/data layer using ccusage library + CLI JSON outputs per the hybrid decision.
-- Overview page with current-period summaries and one chart baseline.
-- Details routes for agents, sessions, and report periods.
-- Manual refresh control that re-fetches data.
-- Local settings stored in local storage (feature-ready scaffold).
-- Setup checklist empty state for missing data/tooling.
-
-### Definition of Done
-- [ ] SSR server starts and renders `/` with hydrated React UI.
-- [ ] All routes resolve: `/`, `/agents/:agent`, `/sessions/:id`, `/reports/:period`.
-- [ ] Manual refresh triggers data reload and UI updates.
-- [ ] Overview shows summaries for current day/week/month and a cost-over-time chart.
-- [ ] Details views show aggregate data per agent, per session, and per period.
-- [ ] Local settings read/write from local storage without hydration mismatch.
-- [ ] Missing data shows a setup checklist.
-
-### Must Have
-- Manual refresh only (no polling).
-- Separate agent tabs/filters for Claude Code vs OpenCode.
-- ccusage library loaders for daily/monthly/session (Claude Code).
-- ccusage CLI JSON for weekly/blocks (Claude Code).
-- @ccusage/opencode CLI JSON for OpenCode (daily/weekly/monthly/session).
-- Local-only behavior (no auth, no remote services).
-
-### Must NOT Have (Guardrails)
-- No live monitoring or streaming data (see `docs/ccusage/blocks-reports.md`).
-- No message-level session drilldown.
-- No caching layer beyond in-memory state for current view.
-- No external auth or cloud dependencies.
-- No data export UI.
-
----
-
 ## Versioning and Determinism Policy
 
-- Pin ccusage and opencode CLI versions in `package.json` (no `@latest`).
-- Record the exact versions in `fixtures/ccusage/meta.json` and `fixtures/opencode/meta.json`.
+- Pin exact versions in `package.json` on day 1 using `npm view <pkg> version` (or `bunx --bun npm view`):
+  - `ccusage`, `@ccusage/opencode`, `hono`, `@hono/vite-dev-server`, `@hono/vite-build`, `vite`, `react`, `react-dom`, `react-router-dom`, `recharts`.
+- Record the resolved versions in `fixtures/ccusage/meta.json` and `fixtures/opencode/meta.json`.
 - Update fixtures + normalizers together when versions change.
 
 ---
@@ -123,6 +84,11 @@ Deliver a local, SSR web dashboard that visualizes Claude Code and OpenCode usag
 - Tooling requirements:
   - `package.json` must include `"type": "module"` per Hono Vite plugins.
   - Node >= 18.14.1 (Hono Node adapter requirement).
+
+### SSR-safe Chart Strategy
+- Render a chart placeholder server-side (`div` with fixed height and a skeleton).
+- Render the Recharts chart only on the client after hydration (lazy import + `useEffect` flag).
+- This avoids hydration mismatch and DOM-dependent chart failures.
 
 ### Initial State Hydration Contract
 - SSR embeds a script tag: `window.__INITIAL_STATE__ = <json>`.
@@ -270,6 +236,18 @@ Because ccusage docs show multiple JSON shapes across pages, the plan requires c
   - `@ccusage/opencode monthly --json`
   - `@ccusage/opencode session --json`
 
+### Fixture Capture Commands (deterministic)
+- Use the current-month window when capturing fixtures:
+  - `LOG_LEVEL=0 bunx ccusage@<pinned> daily --json --offline --since <YYYYMM01> --until <YYYYMMDD> > fixtures/ccusage/daily.json`
+  - `LOG_LEVEL=0 bunx ccusage@<pinned> weekly --json --offline --since <YYYYMM01> --until <YYYYMMDD> --start-of-week sunday > fixtures/ccusage/weekly.json`
+  - `LOG_LEVEL=0 bunx ccusage@<pinned> monthly --json --offline --since <YYYYMM01> --until <YYYYMMDD> > fixtures/ccusage/monthly.json`
+  - `LOG_LEVEL=0 bunx ccusage@<pinned> session --json --offline --since <YYYYMM01> --until <YYYYMMDD> > fixtures/ccusage/session.json`
+  - `LOG_LEVEL=0 bunx ccusage@<pinned> blocks --json --offline --recent > fixtures/ccusage/blocks.json`
+  - `LOG_LEVEL=0 bunx @ccusage/opencode@<pinned> daily --json --offline --since <YYYYMM01> --until <YYYYMMDD> > fixtures/opencode/daily.json`
+  - `LOG_LEVEL=0 bunx @ccusage/opencode@<pinned> weekly --json --offline --since <YYYYMM01> --until <YYYYMMDD> > fixtures/opencode/weekly.json`
+  - `LOG_LEVEL=0 bunx @ccusage/opencode@<pinned> monthly --json --offline --since <YYYYMM01> --until <YYYYMMDD> > fixtures/opencode/monthly.json`
+  - `LOG_LEVEL=0 bunx @ccusage/opencode@<pinned> session --json --offline --since <YYYYMM01> --until <YYYYMMDD> > fixtures/opencode/session.json`
+
 References for expected fields:
 - Daily/monthly/session/blocks: `docs/ccusage/json-output.md`.
 - Weekly: `docs/ccusage/weekly-reports.md`.
@@ -362,7 +340,8 @@ Use CLI flags from `docs/ccusage/cli-options.md`:
   - ccusage daily/weekly/monthly/session: redact `project`, `projectName`, `session`, `sessionId` fields and any path-like fields.
   - ccusage blocks: redact any `project`-like fields or `id` fields.
   - OpenCode: redact `sessionID`, `projectHash`, and any `messageID` values.
-- Commit sanitized fixtures only.
+- Validate sanitized fixtures:
+  - Grep for home-directory paths or raw project/session IDs must return none.
 
 ---
 
@@ -466,7 +445,7 @@ Task 1 → Task 2 → Task 3 → Task 4
   - Normalize all responses into the shared contracts and response envelope.
   - Implement empty-state detection using the defined path rules and env vars.
   - Return “unsupported blocks for OpenCode” response for `agent=opencode&period=blocks`.
-  - Before using OpenCode flags, run `bunx @ccusage/opencode@<pinned> --help` and record supported flags; skip unsupported flags and append `errors[]` note.
+  - Before using OpenCode flags, run `bunx @ccusage/opencode@<pinned> --help` and record supported flags in `fixtures/opencode/meta.json`; skip unsupported flags and append `errors[]` note.
   - Add a single `runCliCommand()` helper module so tests can stub CLI execution and load fixtures.
 
   **Must NOT do**:
@@ -502,7 +481,7 @@ Task 1 → Task 2 → Task 3 → Task 4
 
   **What to do**:
   - Implement overview cards for current day/week/month totals.
-  - Add Recharts and render a cost-over-time chart (daily series for current month).
+  - Add Recharts and render a cost-over-time chart (daily series for current month) client-only after hydration.
   - Provide a manual refresh control (button) that reloads data via `/api/usage`.
   - Add agent tabs/filters (Claude Code vs OpenCode).
   - Show “Settings apply after refresh” note when local settings differ from defaults.
@@ -520,7 +499,7 @@ Task 1 → Task 2 → Task 3 → Task 4
 
   **Acceptance Criteria**:
   - [ ] Overview shows current totals for day/week/month.
-  - [ ] Chart renders with cost over time for selected agent.
+  - [ ] Chart renders with cost over time for selected agent (client-only).
   - [ ] Refresh button re-fetches and updates values.
   - [ ] Agent tabs filter all values.
 
