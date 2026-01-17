@@ -112,15 +112,20 @@ Deliver a local, SSR web dashboard that visualizes Claude Code and OpenCode usag
 - Client reads `window.__INITIAL_STATE__` in `entry-client.tsx` and hydrates without fetching.
 - Manual refresh replaces state from `/api/usage`.
 
+### SSR Data Loading Flow
+- SSR calls the same internal data-loading functions used by `/api/usage` (shared module), not HTTP requests, to avoid duplicate logic.
+- Errors/empty state returned from data-loading functions are embedded into initial state and rendered in the UI.
+- `/api/usage` simply serializes the same data-loading results as JSON.
+
 ### Initial State Shape (per route)
 - **Overview (`/`)**:
-  - `overview.daily`, `overview.weekly`, `overview.monthly`, `overview.sessions` populated from parallel API calls.
+  - `overview.daily`, `overview.weekly`, `overview.monthly`, `overview.sessions` populated from parallel data-loader calls.
 - **Agent details (`/agents/:agent`)**:
-  - `agentReports.daily|weekly|monthly|session|blocks` populated (5 API calls).
+  - `agentReports.daily|weekly|monthly|session|blocks` populated (5 loader calls).
 - **Session details (`/sessions/:id`)**:
   - `sessionDetail` populated with one session object + optional children.
 - **Report details (`/reports/:period`)**:
-  - `report` populated from a single API call for the selected period.
+  - `report` populated from a single loader call for the selected period.
 
 ---
 
@@ -244,14 +249,17 @@ References for expected fields:
 - **Daily**:
   - Summary: `totals.totalTokens`, `totals.inputTokens`, `totals.outputTokens`, `totals.totalCost` → `totalCostUSD`.
   - Series: `daily[].date`, `daily[].totalCost`, `daily[].totalTokens`.
+  - Models: map `modelsUsed` or `models` to `modelsUsed`.
 - **Weekly**:
   - Summary: `totals.totalTokens`, `totals.inputTokens`, `totals.outputTokens`, `totals.totalCost` → `totalCostUSD`.
   - Series: `weekly[].week`, `weekly[].totalCost`, `weekly[].totalTokens`.
+  - Models: map `modelsUsed` or `models` to `modelsUsed`.
 - **Monthly**:
   - Summary: `summary.totalTokens`, `summary.totalInputTokens`, `summary.totalOutputTokens`, `summary.totalCostUSD`.
   - Series: `data[].month`, `data[].costUSD`, `data[].totalTokens`.
+  - Models: `data[].models` → `modelsUsed`.
 - **Session**:
-  - Sessions: `data[].session`, `data[].lastActivity`, `data[].totalTokens`, `data[].costUSD`, `data[].models`.
+  - Sessions: `data[].session` → `sessionId`, `data[].lastActivity`, `data[].totalTokens`, `data[].costUSD` → `totalCostUSD`, `data[].models` → `modelsUsed`.
 - **Blocks**:
   - Prefer fixture schema. If using `json-output.md`, map `data[].blockStart`, `data[].blockEnd`, `data[].isActive`, `data[].totalTokens`, `data[].costUSD`.
   - If using `blocks-reports.md`, map:
@@ -316,8 +324,10 @@ Use CLI flags from `docs/ccusage/cli-options.md`:
 
 ### Fixtures Policy
 - Store fixtures under `fixtures/ccusage/` and `fixtures/opencode/`.
-- Sanitize project names and session IDs before committing.
-- Commit sanitized fixtures; add `.gitignore` for any raw dumps.
+- Sanitize project names and session IDs by stable hashing:
+  - Replace any project/session/path identifiers with `hash:<shortHash>`.
+  - Store the mapping in `fixtures/.map.json` and exclude it via `.gitignore`.
+- Commit sanitized fixtures only.
 
 ---
 
@@ -352,6 +362,26 @@ Task 1 → Task 2 → Task 3 → Task 4
 
 ## TODOs
 
+- [ ] 0. Initialize project scaffold
+
+  **What to do**:
+  - Create `package.json` with scripts: `dev`, `build`, `preview`, `test`.
+  - Add dependencies: `react`, `react-dom`, `react-router-dom`, `hono`.
+  - Add dev dependencies: `vite`, `@vitejs/plugin-react`, `@hono/vite-dev-server`, `@hono/vite-build`, `typescript`, `vitest`, `@testing-library/react`.
+  - Add `tsconfig.json` suitable for Vite + React.
+  - Create base dirs: `src/`, `public/`.
+
+  **Must NOT do**:
+  - Do not bring in unrelated frameworks.
+
+  **Parallelizable**: NO
+
+  **Acceptance Criteria**:
+  - [ ] `bun install` succeeds with the above dependencies.
+  - [ ] `vite` runs and reads `vite.config.ts`.
+
+  **Commit**: NO
+
 - [ ] 1. Scaffold Hono + Vite SSR app with React hydration
 
   **What to do**:
@@ -365,6 +395,7 @@ Task 1 → Task 2 → Task 3 → Task 4
     - `dev`: `vite`
     - `build`: `vite build --mode client && vite build`
     - `preview`: `node dist/index.js`
+    - `test`: `vitest run`
   - Add `"type": "module"` to `package.json`.
 
   **Must NOT do**:
@@ -399,6 +430,7 @@ Task 1 → Task 2 → Task 3 → Task 4
   - Normalize all responses into the shared contracts and response envelope.
   - Implement empty-state detection using the defined path rules and env vars.
   - Return “unsupported blocks for OpenCode” response for `agent=opencode&period=blocks`.
+  - Before using OpenCode flags, run `bunx @ccusage/opencode@latest --help` and record supported flags; skip unsupported flags and append `errors[]` note.
 
   **Must NOT do**:
   - Do not call any external network APIs.
