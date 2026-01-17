@@ -39,8 +39,7 @@ Build a web dashboard for local agents (Claude Code, OpenCode) using TypeScript 
 
 ## Versioning and Determinism Policy
 
-- Pin exact versions in `package.json` on day 1 using `npm view <pkg> version` (or `bunx --bun npm view`):
-  - `ccusage`, `@ccusage/opencode`, `hono`, `@hono/vite-dev-server`, `@hono/vite-build`, `vite`, `react`, `react-dom`, `react-router-dom`, `recharts`.
+- Pin exact versions in `package.json` on day 1 using `npm view <pkg> version` (or `bunx --bun npm view`).
 - Record the resolved versions in `fixtures/ccusage/meta.json` and `fixtures/opencode/meta.json`.
 - Update fixtures + normalizers together when versions change.
 
@@ -56,7 +55,8 @@ Build a web dashboard for local agents (Claude Code, OpenCode) using TypeScript 
 
 ### Permalink Rules
 - Overview accepts `/?agent=claude|opencode` and uses it as SSR default.
-- Agent tabs update the URL query param so links are shareable.
+- Precedence order: query param → localStorage defaultAgent → fallback `claude`.
+- Clicking agent tabs updates both the URL query param and localStorage defaultAgent.
 
 ### Session URL Encoding
 - Prefix session IDs with agent: `claude:<id>` or `opencode:<id>`.
@@ -66,7 +66,7 @@ Build a web dashboard for local agents (Claude Code, OpenCode) using TypeScript 
 - Use Hono Vite dev server plugin in dev (`@hono/vite-dev-server` + node adapter).
 - Use Hono Vite build plugin for production (`@hono/vite-build/node`).
 - File layout:
-  - `src/server.tsx`: Hono app + React SSR (`renderToString`) + route handlers.
+  - `src/server.tsx`: Hono app + React SSR (`renderToString`) + route handlers. Default export: `app`.
   - `src/routes.tsx`: React Router routes.
   - `src/entry-client.tsx`: React hydration entry (`hydrateRoot`).
 - `vite.config.ts` must explicitly set plugin entry:
@@ -84,6 +84,11 @@ Build a web dashboard for local agents (Claude Code, OpenCode) using TypeScript 
 - Tooling requirements:
   - `package.json` must include `"type": "module"` per Hono Vite plugins.
   - Node >= 18.14.1 (Hono Node adapter requirement).
+
+### Vite Client Build Invariants
+- Set `rollupOptions.output.entryFileNames = 'static/client.js'` for client build.
+- Set `rollupOptions.output.chunkFileNames = 'static/assets/[name]-[hash].js'` and `assetFileNames = 'static/assets/[name].[ext]'`.
+- Set `emptyOutDir: false` and `copyPublicDir: false` for `--mode client` build to preserve server output.
 
 ### SSR-safe Chart Strategy
 - Render a chart placeholder server-side (`div` with fixed height and a skeleton).
@@ -342,6 +347,10 @@ Use CLI flags from `docs/ccusage/cli-options.md`:
   - OpenCode: redact `sessionID`, `projectHash`, and any `messageID` values.
 - Validate sanitized fixtures:
   - Grep for home-directory paths or raw project/session IDs must return none.
+
+### Fixture Fallback Strategy (no local data)
+- If no local data exists, create minimal synthetic fixtures that mirror the documented JSON structures in `docs/ccusage/json-output.md` and `docs/ccusage/weekly-reports.md`.
+- Mark these fixtures as synthetic in `fixtures/*/meta.json` and replace once real data is available.
 
 ---
 
