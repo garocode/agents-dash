@@ -33,7 +33,7 @@ Build a web dashboard for local agents (Claude Code, OpenCode) using TypeScript 
 - Default time ranges set to current for all views.
 - Session details depth set to aggregate-only.
 - Empty state guidance added (setup checklist).
-- SSR integration, routing, settings semantics, and CLI invocation rules defined.
+- SSR integration, routing, settings propagation, and CLI invocation rules defined.
 
 ---
 
@@ -92,6 +92,9 @@ Deliver a local, SSR web dashboard that visualizes Claude Code and OpenCode usag
   - `src/server.tsx`: Hono app + React SSR (`renderToString`) + route handlers.
   - `src/routes.tsx`: React Router routes.
   - `src/entry-client.tsx`: React hydration entry (`hydrateRoot`).
+- `vite.config.ts` must explicitly set plugin entry:
+  - `devServer({ entry: 'src/server.tsx', adapter: nodeAdapter })`
+  - `build({ entry: './src/server.tsx' })`
 - Build strategy:
   - `vite` in dev (plugin serves app).
   - `vite build --mode client` builds `dist/static/client.js`.
@@ -124,12 +127,21 @@ Persisted in local storage and applied on the client only:
 
 Settings apply after the first manual refresh in the current session. SSR uses defaults; UI should show a note “Settings apply after refresh” when settings differ from defaults.
 
+### Settings Propagation Contract
+- Client sends settings to `/api/usage` as query params:
+  - `mode=auto|calculate|display`
+  - `timezone=local|UTC`
+  - `startOfWeek=sunday|monday|...`
+  - `breakdown=1|0`
+- For CLI-backed periods, these map to flags (`--mode`, `--timezone`, `--start-of-week`, `--breakdown`).
+- For library-backed periods (daily/monthly/session), only `mode` is passed to loaders; `timezone/startOfWeek/breakdown` are ignored and the UI shows a note.
+
 ---
 
 ## API & Data Contracts (Implementation Requirement)
 
 ### API Response Envelope
-`GET /api/usage?agent=claude|opencode&period=daily|weekly|monthly|session|blocks`
+`GET /api/usage?agent=claude|opencode&period=daily|weekly|monthly|session|blocks[&mode][&timezone][&startOfWeek][&breakdown]`
 
 ```
 {
@@ -241,16 +253,7 @@ References for expected fields:
 - **Today**: local date at midnight, formatted `YYYYMMDD`.
 - **Current week**: compute week start based on `startOfWeek` setting (default Sunday).
 - **Current month**: first day of month to today.
-- For library loaders (daily/monthly/session), fetch all data and filter in-memory by date string ranges using the computed windows. Timezone setting does not change library outputs; UI note remains “Settings apply after refresh” (and applies to CLI-only periods).
-
-### Current Period CLI Invocation Rules
-Use CLI flags from `docs/ccusage/cli-options.md`:
-- **Daily (today)**: `--since YYYYMMDD --until YYYYMMDD`.
-- **Weekly (current week)**: compute start/end from `startOfWeek`, then `--since YYYYMMDD --until YYYYMMDD`.
-- **Monthly (current month)**: `--since YYYYMM01 --until YYYYMMDD` (today).
-- **Sessions (current month)**: same date window as monthly.
-- **Blocks**: `--recent` (last 3 days) for overview; full blocks list on details view.
-- Apply `--timezone` and `--start-of-week` from local settings when present.
+- For library loaders (daily/monthly/session), fetch all data and filter in-memory by date string ranges using the computed windows.
 
 ### Offline / No-Network Enforcement
 - Always pass `--offline` for CLI invocations.
@@ -285,6 +288,13 @@ Use CLI flags from `docs/ccusage/cli-options.md`:
 - Store fixtures under `fixtures/ccusage/` and `fixtures/opencode/`.
 - Sanitize project names and session IDs before committing.
 - Commit sanitized fixtures; add `.gitignore` for any raw dumps.
+
+---
+
+## Session Identity Rules
+
+- **Claude Code**: use `data[].session` from `ccusage session --json` as the URL `:id`. Details page loads with `ccusage session --id <id> --json` when available, otherwise filters the session list to `session === :id`.
+- **OpenCode**: use `sessionID` from `@ccusage/opencode session --json` fixtures as the URL `:id`. If a session has subagents, `/sessions/:id` shows parent + all subagent rows aggregated under the parent.
 
 ---
 
