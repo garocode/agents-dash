@@ -18,16 +18,14 @@ Build a web dashboard for local agents (Claude Code, OpenCode) using TypeScript 
 - Data source decision: hybrid (library for daily/monthly/session; CLI JSON for weekly/blocks + OpenCode).
 
 **Research Findings**:
-- Vite SSR architecture and middleware mode: https://vitejs.dev/guide/ssr.
 - Hono Node.js adapter: https://hono.dev/docs/getting-started/nodejs.
-- Hono Vite plugins:
-  - https://raw.githubusercontent.com/honojs/vite-plugins/main/packages/dev-server/README.md
-  - https://raw.githubusercontent.com/honojs/vite-plugins/main/packages/build/README.md
+- Hono Vite dev server plugin: https://raw.githubusercontent.com/honojs/vite-plugins/main/packages/dev-server/README.md.
+- Hono Vite build plugin: https://raw.githubusercontent.com/honojs/vite-plugins/main/packages/build/README.md.
 - ccusage library usage (daily/monthly/session loaders): `docs/ccusage/library-usage.md`.
 - ccusage CLI JSON schemas: `docs/ccusage/json-output.md`, `docs/ccusage/weekly-reports.md`, `docs/ccusage/blocks-reports.md`.
 - OpenCode CLI JSON output and session hierarchy: `docs/ccusage/opencode/index.md`.
 - CLI flags for date filtering, timezone, and start-of-week: `docs/ccusage/cli-options.md`.
-- Data directories and config/env variables: `docs/ccusage/environment-variables.md`, `docs/ccusage/configuration.md`.
+- Data directories and config/env variables: `docs/ccusage/environment-variables.md`, `docs/ccusage/configuration.md`, `docs/ccusage/directory-detection.md`.
 
 ### Metis Review
 **Identified Gaps** (addressed):
@@ -45,7 +43,7 @@ Build a web dashboard for local agents (Claude Code, OpenCode) using TypeScript 
 Deliver a local, SSR web dashboard that visualizes Claude Code and OpenCode usage via ccusage tooling, with manual refresh, overview + detail routes, and a modern UI.
 
 ### Concrete Deliverables
-- Hono/Node SSR server with React hydration and Vite build pipeline.
+- Hono/Node SSR server with React hydration and Vite dev/build pipeline (Hono Vite plugins).
 - API/data layer using ccusage library + CLI JSON outputs per the hybrid decision.
 - Overview page with current-period summaries and one chart baseline.
 - Details routes for agents, sessions, and report periods.
@@ -82,15 +80,31 @@ Deliver a local, SSR web dashboard that visualizes Claude Code and OpenCode usag
 ## SSR, Routing, and Data Loading Semantics
 
 ### Routing Decision
-- Use React Router.
+- Use React Router v6 (non-data router).
 - Server render: `StaticRouter` with current request URL.
 - Client render: `BrowserRouter`.
 - Routes map 1:1 to `/`, `/agents/:agent`, `/sessions/:id`, `/reports/:period`.
 
-### SSR Integration Decision
-- Use Hono Node adapter as the HTTP server.
-- Use `@hono/vite-dev-server` in dev and `@hono/vite-build` for production builds.
-- Follow Vite SSR entry-client/entry-server layout and call render from Hono route handler.
+### SSR Integration Decision (Concrete)
+- Use Hono Vite dev server plugin in dev (`@hono/vite-dev-server` + node adapter).
+- Use Hono Vite build plugin for production (`@hono/vite-build/node`).
+- File layout:
+  - `src/server.tsx`: Hono app + React SSR (`renderToString`) + route handlers.
+  - `src/routes.tsx`: React Router routes.
+  - `src/entry-client.tsx`: React hydration entry (`hydrateRoot`).
+- Build strategy:
+  - `vite` in dev (plugin serves app).
+  - `vite build --mode client` builds `dist/static/client.js`.
+  - `vite build` builds server output (per `@hono/vite-build/node`).
+- HTML embeds the client bundle via:
+  - Dev: `<script type="module" src="/src/entry-client.tsx"></script>`
+  - Prod: `<script type="module" src="/static/client.js"></script>`
+
+### Initial State Hydration Contract
+- SSR embeds a script tag: `window.__INITIAL_STATE__ = <json>`.
+- Serialize safely: `JSON.stringify(state).replace(/</g, "\\u003c")` to avoid XSS.
+- Client reads `window.__INITIAL_STATE__` in `entry-client.tsx` and hydrates without fetching.
+- Manual refresh replaces state from `/api/usage`.
 
 ### Data Loading Semantics
 - SSR renders pages with real data on every request using the API/data layer.
@@ -105,7 +119,7 @@ Persisted in local storage and applied on the client only:
 - `defaultAgent`: "claude" | "opencode" (initial tab)
 - `costMode`: "auto" | "calculate" | "display" (maps to `--mode`)
 - `startOfWeek`: "sunday" | "monday" | ... (maps to `--start-of-week`)
-- `timezone`: "local" | "UTC" | IANA zone (maps to `--timezone`)
+- `timezone`: "local" | "UTC" (v1 only; stored as string for later expansion)
 - `showBreakdown`: boolean (maps to `--breakdown`)
 
 Settings apply after the first manual refresh in the current session. SSR uses defaults; UI should show a note “Settings apply after refresh” when settings differ from defaults.
@@ -134,9 +148,30 @@ Settings apply after the first manual refresh in the current session. SSR uses d
 }
 ```
 
+### Error Semantics
+- Missing/invalid `agent` or `period` → HTTP 400 + `errors[]`.
+- Unsupported combo (OpenCode + blocks) → HTTP 200 + `errors[]` + `emptyState.isEmpty=true`.
+- CLI failure / JSON parse failure → HTTP 500 + `errors[]`.
+- Missing data directories → HTTP 200 + `emptyState.isEmpty=true`.
+
 ### Unsupported Combinations
 - `agent=opencode&period=blocks` is unsupported. Return:
   - `blocks: []`, `summary: null`, `errors: ["Blocks reports not supported for OpenCode"]`, `emptyState.isEmpty=true`.
+
+### Per-Period Response Fields
+- `daily`: `summary` + `series` populated; `sessions`/`blocks` empty.
+- `weekly`: `summary` + `series` populated; `sessions`/`blocks` empty.
+- `monthly`: `summary` + `series` populated; `sessions`/`blocks` empty.
+- `session`: `sessions` populated; `summary` optional; `series` empty; `blocks` empty.
+- `blocks`: `blocks` populated; `summary` optional; `series` empty; `sessions` empty.
+
+### Overview Data Fetch Strategy
+- Overview performs 4 parallel API calls for the selected agent:
+  - `period=daily` (today summary + daily series)
+  - `period=weekly` (current week summary)
+  - `period=monthly` (current month summary)
+  - `period=session` (session list for table preview)
+- The cost-over-time chart uses the `series` from `period=daily`.
 
 ### Shared Contracts
 **UsageSummary** (overview cards):
@@ -185,11 +220,28 @@ References for expected fields:
 - Weekly: `docs/ccusage/weekly-reports.md`.
 - Blocks alternate schema: `docs/ccusage/blocks-reports.md` (verify against fixture and reconcile).
 
-### Normalization Rules (field mapping)
-Use fixtures as canonical. Map to `totalCostUSD` as follows:
-- If the row has `totalCost`, map to `totalCostUSD`.
-- If the row has `costUSD`, map to `totalCostUSD`.
-- If summary has `totalCost` or `totalCostUSD`, normalize to `totalCostUSD`.
+### Normalization Rules (per period)
+- **Daily**:
+  - Summary: `totals.totalTokens`, `totals.inputTokens`, `totals.outputTokens`, `totals.totalCost` → `totalCostUSD`.
+  - Series: `daily[].date`, `daily[].totalCost`, `daily[].totalTokens`.
+- **Weekly**:
+  - Summary: `totals.totalTokens`, `totals.inputTokens`, `totals.outputTokens`, `totals.totalCost` → `totalCostUSD`.
+  - Series: `weekly[].week`, `weekly[].totalCost`, `weekly[].totalTokens`.
+- **Monthly**:
+  - Summary: `summary.totalTokens`, `summary.totalInputTokens`, `summary.totalOutputTokens`, `summary.totalCostUSD`.
+  - Series: `data[].month`, `data[].costUSD`, `data[].totalTokens`.
+- **Session**:
+  - Sessions: `data[].session`, `data[].lastActivity`, `data[].totalTokens`, `data[].costUSD`, `data[].models`.
+- **Blocks**:
+  - Prefer fixture schema. If using `json-output.md`, map `data[].blockStart`, `data[].blockEnd`, `data[].isActive`, `data[].totalTokens`, `data[].costUSD`.
+  - If using `blocks-reports.md`, map `blocks[].startTime/endTime/isActive/tokenCounts.totalTokens/costUSD`.
+
+### Current Period Computation (library + CLI)
+- Use plain JS Date in local timezone and format `YYYYMMDD` for CLI flags.
+- **Today**: local date at midnight, formatted `YYYYMMDD`.
+- **Current week**: compute week start based on `startOfWeek` setting (default Sunday).
+- **Current month**: first day of month to today.
+- For library loaders (daily/monthly/session), fetch all data and filter in-memory by date string ranges using the computed windows. Timezone setting does not change library outputs; UI note remains “Settings apply after refresh” (and applies to CLI-only periods).
 
 ### Current Period CLI Invocation Rules
 Use CLI flags from `docs/ccusage/cli-options.md`:
@@ -200,9 +252,16 @@ Use CLI flags from `docs/ccusage/cli-options.md`:
 - **Blocks**: `--recent` (last 3 days) for overview; full blocks list on details view.
 - Apply `--timezone` and `--start-of-week` from local settings when present.
 
+### Offline / No-Network Enforcement
+- Always pass `--offline` for CLI invocations.
+- Set `CCUSAGE_OFFLINE=1` in the server process so library calls avoid network.
+- If cost data is unavailable offline:
+  - Set cost fields to `0` and append `errors[]` with “Pricing cache missing; costs may be zero.”
+  - Include this message in the setup checklist.
+
 ### Empty State Detection
 - **Claude Code**:
-  - If `CLAUDE_CONFIG_DIR` is set: split by comma, trim, and check each dir. If a dir does not end with `/projects`, also check `${dir}/projects`.
+  - If `CLAUDE_CONFIG_DIR` is set: split by comma, trim, and check each dir. If a dir does not end with `/projects`, also check `${dir}/projects` (`docs/ccusage/directory-detection.md`).
   - If not set: check `~/.config/claude/projects/` and `~/.claude/projects/`.
 - **OpenCode**:
   - If `OPENCODE_DATA_DIR` is set: check `${OPENCODE_DATA_DIR}/storage`.
@@ -211,15 +270,21 @@ Use CLI flags from `docs/ccusage/cli-options.md`:
   - “Install ccusage (or run via bunx/npx).”
   - “Run Claude Code/OpenCode to generate local data.”
   - “Verify data directories exist (see paths).”
+  - “Pricing cache missing; costs may be zero while offline.”
 
 ### CLI Invocation Strategy
 - Use `bunx` for both tools:
-  - `bunx ccusage@latest <command> --json`
-  - `bunx @ccusage/opencode@latest <command> --json`
+  - `bunx ccusage@latest <command> --json --offline`
+  - `bunx @ccusage/opencode@latest <command> --json --offline`
 - Set `LOG_LEVEL=0` to silence logs when parsing JSON.
 - Error handling:
   - Non-zero exit or JSON parse failure → `errors[]` populated and HTTP 500.
   - Missing data directories → HTTP 200 with `emptyState.isEmpty=true`.
+
+### Fixtures Policy
+- Store fixtures under `fixtures/ccusage/` and `fixtures/opencode/`.
+- Sanitize project names and session IDs before committing.
+- Commit sanitized fixtures; add `.gitignore` for any raw dumps.
 
 ---
 
@@ -250,12 +315,16 @@ Task 1 → Task 2 → Task 3 → Task 4
 - [ ] 1. Scaffold Hono + Vite SSR app with React hydration
 
   **What to do**:
-  - Follow Vite SSR guide (entry-client + entry-server) and run Vite in middleware mode.
-  - Use Hono Node adapter and Hono Vite dev server/build plugins for integration.
-  - Define `server.ts` to mount Vite middleware and render SSR HTML in Hono routes.
-  - Implement React Router with `StaticRouter` (server) and `BrowserRouter` (client).
-  - Establish routes for SSR: `/`, `/agents/:agent`, `/sessions/:id`, `/reports/:period`.
-  - Add a JSON data endpoint for refresh: `GET /api/usage?agent=claude|opencode&period=daily|weekly|monthly|session|blocks`.
+  - Use `@hono/vite-dev-server` in dev and `@hono/vite-build/node` in prod.
+  - Implement `src/server.tsx` with Hono routes and React SSR (`renderToString`).
+  - Implement `src/entry-client.tsx` with `hydrateRoot` and React Router `BrowserRouter`.
+  - Implement `src/routes.tsx` and use `StaticRouter` on the server.
+  - Add `window.__INITIAL_STATE__` script injection with XSS-safe serialization.
+  - Add `/api/usage` endpoint in the Hono app.
+  - Add scripts:
+    - `dev`: `vite`
+    - `build`: `vite build --mode client && vite build`
+    - `preview`: `node dist/index.js`
 
   **Must NOT do**:
   - Do not reuse patterns or code from other projects in this workspace.
@@ -264,10 +333,9 @@ Task 1 → Task 2 → Task 3 → Task 4
   **Parallelizable**: NO
 
   **References**:
-  - https://vitejs.dev/guide/ssr - SSR entry structure and middleware setup.
-  - https://hono.dev/docs/getting-started/nodejs - Hono Node adapter.
-  - https://raw.githubusercontent.com/honojs/vite-plugins/main/packages/dev-server/README.md - Hono Vite dev server integration.
-  - https://raw.githubusercontent.com/honojs/vite-plugins/main/packages/build/README.md - Hono Vite build integration.
+  - https://raw.githubusercontent.com/honojs/vite-plugins/main/packages/dev-server/README.md
+  - https://raw.githubusercontent.com/honojs/vite-plugins/main/packages/build/README.md
+  - https://hono.dev/docs/getting-started/nodejs
 
   **Acceptance Criteria**:
   - [ ] `bun dev` starts server and renders `/` with HTML.
@@ -305,11 +373,12 @@ Task 1 → Task 2 → Task 3 → Task 4
   - `docs/ccusage/opencode/index.md` - OpenCode CLI and data directory.
   - `docs/ccusage/cli-options.md` - date filters, timezone, start-of-week.
   - `docs/ccusage/environment-variables.md` - `CLAUDE_CONFIG_DIR` semantics.
+  - `docs/ccusage/directory-detection.md` - default Claude data directories.
 
   **Acceptance Criteria**:
   - [ ] CLI JSON output parsed for weekly/blocks and all OpenCode reports.
   - [ ] Fixtures captured and used as the schema for normalization.
-  - [ ] Library outputs filtered to current periods.
+  - [ ] Library outputs filtered to current periods via in-memory date range filter.
   - [ ] OpenCode blocks returns explicit unsupported response.
   - [ ] Empty-state checklist triggers when directories are missing.
 
@@ -402,12 +471,12 @@ Task 1 → Task 2 → Task 3 → Task 4
   - `docs/ccusage/json-output.md` - canonical JSON schemas for fixtures.
 
   **Acceptance Criteria**:
-  - [ ] `bun test` passes.
+  - [ ] `bun run test` passes (script runs `vitest`).
   - [ ] Data normalization tests cover Claude Code + OpenCode.
   - [ ] API route tests validate JSON outputs.
 
   **Manual Execution Verification**:
-  - [ ] Run `bun test` and capture passing output.
+  - [ ] Run `bun run test` and capture passing output.
 
   **Commit**: NO
 
@@ -424,7 +493,7 @@ No commits unless explicitly requested.
 ### Verification Commands
 ```bash
 bun dev
-bun test
+bun run test
 ```
 
 ### Final Checklist
