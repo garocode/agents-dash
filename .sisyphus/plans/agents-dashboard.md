@@ -93,6 +93,14 @@ Deliver a local, SSR web dashboard that visualizes Claude Code and OpenCode usag
 - Client render: `BrowserRouter`.
 - Routes map 1:1 to `/`, `/agents/:agent`, `/sessions/:id`, `/reports/:period`.
 
+### Permalink Rules
+- Overview accepts `/?agent=claude|opencode` and uses it as SSR default.
+- Agent tabs update the URL query param so links are shareable.
+
+### Session URL Encoding
+- Prefix session IDs with agent: `claude:<id>` or `opencode:<id>`.
+- `/sessions/:id` always expects this prefix to avoid collisions.
+
 ### SSR Integration Decision (Concrete)
 - Use Hono Vite dev server plugin in dev (`@hono/vite-dev-server` + node adapter).
 - Use Hono Vite build plugin for production (`@hono/vite-build/node`).
@@ -110,6 +118,8 @@ Deliver a local, SSR web dashboard that visualizes Claude Code and OpenCode usag
 - HTML embeds the client bundle via:
   - Dev: `<script type="module" src="/src/entry-client.tsx"></script>`
   - Prod: `<script type="module" src="/static/client.js"></script>`
+- Production static assets:
+  - Use `serveStatic` from `@hono/node-server/serve-static` to serve `dist/static/*` at `/static/*`.
 - Tooling requirements:
   - `package.json` must include `"type": "module"` per Hono Vite plugins.
   - Node >= 18.14.1 (Hono Node adapter requirement).
@@ -192,6 +202,11 @@ Settings apply after the first manual refresh in the current session. SSR uses d
 - Unsupported combo (OpenCode + blocks) → HTTP 200 + `errors[]` + `emptyState.isEmpty=true`.
 - CLI failure / JSON parse failure → HTTP 500 + `errors[]`.
 - Missing data directories → HTTP 200 + `emptyState.isEmpty=true`.
+
+### UI Error/Empty Handling
+- `emptyState.isEmpty=true`: show checklist panel.
+- `errors[]` with HTTP 500: show error banner with first message.
+- Unknown route/param: render 404 page with link back to `/`.
 
 ### Unsupported Combinations
 - `agent=opencode&period=blocks` is unsupported. Return:
@@ -417,6 +432,7 @@ Task 1 → Task 2 → Task 3 → Task 4
     - `preview`: `node dist/index.js`
     - `test`: `vitest run`
   - Add `"type": "module"` to `package.json`.
+  - Serve `dist/static/*` via `serveStatic` in production.
 
   **Must NOT do**:
   - Do not reuse patterns or code from other projects in this workspace.
