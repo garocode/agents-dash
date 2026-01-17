@@ -77,6 +77,14 @@ Deliver a local, SSR web dashboard that visualizes Claude Code and OpenCode usag
 
 ---
 
+## Versioning and Determinism Policy
+
+- Pin ccusage and opencode CLI versions in `package.json` (no `@latest`).
+- Record the exact versions in `fixtures/ccusage/meta.json` and `fixtures/opencode/meta.json`.
+- Update fixtures + normalizers together when versions change.
+
+---
+
 ## SSR, Routing, and Data Loading Semantics
 
 ### Routing Decision
@@ -116,6 +124,12 @@ Deliver a local, SSR web dashboard that visualizes Claude Code and OpenCode usag
 - SSR calls the same internal data-loading functions used by `/api/usage` (shared module), not HTTP requests.
 - Errors/empty state returned from data-loading functions are embedded into initial state and rendered in the UI.
 - `/api/usage` simply serializes the same data-loading results as JSON.
+
+### Refresh Orchestration Policy
+- **Overview refresh**: 4 parallel calls (`daily`, `weekly`, `monthly`, `session`).
+- **Agent details refresh**: 5 parallel calls (`daily`, `weekly`, `monthly`, `session`, `blocks`).
+- **Report details refresh**: 1 call for the selected `period`.
+- **Session details refresh**: 1 call for `session` period + filter for `:id`.
 
 ### Initial State Shape (per route)
 - **Overview (`/`)**:
@@ -301,11 +315,10 @@ Use CLI flags from `docs/ccusage/cli-options.md`:
   - Set cost fields to `0` and append `errors[]` with “Pricing cache missing; costs may be zero.”
   - Include this message in the setup checklist.
 
-### Empty State Detection (verified)
+### Empty State Detection
 - **Claude Code**:
-  - If `CLAUDE_CONFIG_DIR` is set, treat each comma-separated entry as a root that already contains `projects/` per `docs/ccusage/directory-detection.md` examples. If the path does not contain `projects/`, append it and check both.
+  - If `CLAUDE_CONFIG_DIR` is set: split by comma, trim, and check each dir. If a dir does not end with `/projects`, also check `${dir}/projects` (`docs/ccusage/directory-detection.md`).
   - If not set: check `~/.config/claude/projects/` and `~/.claude/projects/`.
-  - Always verify actual resolved paths by running `ccusage daily --debug` once and noting the detected paths in logs.
 - **OpenCode**:
   - If `OPENCODE_DATA_DIR` is set: check `${OPENCODE_DATA_DIR}/storage`.
   - If not set: check `~/.local/share/opencode/storage`.
@@ -316,9 +329,9 @@ Use CLI flags from `docs/ccusage/cli-options.md`:
   - “Pricing cache missing; costs may be zero while offline.”
 
 ### CLI Invocation Strategy
-- Use `bunx` for both tools:
-  - `bunx ccusage@latest <command> --json --offline`
-  - `bunx @ccusage/opencode@latest <command> --json --offline`
+- Use `bunx` for both tools (pinned versions):
+  - `bunx ccusage@<pinned> <command> --json --offline`
+  - `bunx @ccusage/opencode@<pinned> <command> --json --offline`
 - Set `LOG_LEVEL=0` to silence logs when parsing JSON.
 - Error handling:
   - Non-zero exit or JSON parse failure → `errors[]` populated and HTTP 500.
@@ -330,6 +343,10 @@ Use CLI flags from `docs/ccusage/cli-options.md`:
   - Hash algorithm: SHA-256, hex, first 8 chars.
   - Replace any project/session/path identifiers with `hash:<shortHash>`.
   - Store the mapping in `fixtures/.map.json` and exclude it via `.gitignore`.
+- Redaction map per fixture:
+  - ccusage daily/weekly/monthly/session: redact `project`, `projectName`, `session`, `sessionId` fields and any path-like fields.
+  - ccusage blocks: redact any `project`-like fields or `id` fields.
+  - OpenCode: redact `sessionID`, `projectHash`, and any `messageID` values.
 - Commit sanitized fixtures only.
 
 ---
@@ -369,7 +386,7 @@ Task 1 → Task 2 → Task 3 → Task 4
 
   **What to do**:
   - Create `package.json` with scripts: `dev`, `build`, `preview`, `test`.
-  - Add dependencies: `react`, `react-dom`, `react-router-dom`, `hono`, `recharts`.
+  - Add dependencies: `react`, `react-dom`, `react-router-dom`, `hono`, `recharts`, `ccusage`, `@ccusage/opencode` (pinned versions).
   - Add dev dependencies: `vite`, `@vitejs/plugin-react`, `@hono/vite-dev-server`, `@hono/vite-build`, `typescript`, `vitest`, `@testing-library/react`.
   - Add `tsconfig.json` suitable for Vite + React.
   - Create base dirs: `src/`, `public/`.
@@ -427,13 +444,13 @@ Task 1 → Task 2 → Task 3 → Task 4
 
   **What to do**:
   - Use `ccusage/data-loader` for daily/monthly/session (Claude Code).
-  - Invoke `bunx ccusage@latest` with `--json` for weekly/blocks (Claude Code).
-  - Invoke `bunx @ccusage/opencode@latest` with `--json` for daily/weekly/monthly/session (OpenCode).
+  - Invoke `bunx ccusage@<pinned>` with `--json` for weekly/blocks (Claude Code).
+  - Invoke `bunx @ccusage/opencode@<pinned>` with `--json` for daily/weekly/monthly/session (OpenCode).
   - Capture sample JSON outputs into fixtures for all CLI commands listed in “Canonical JSON Schemas.”
   - Normalize all responses into the shared contracts and response envelope.
   - Implement empty-state detection using the defined path rules and env vars.
   - Return “unsupported blocks for OpenCode” response for `agent=opencode&period=blocks`.
-  - Before using OpenCode flags, run `bunx @ccusage/opencode@latest --help` and record supported flags; skip unsupported flags and append `errors[]` note.
+  - Before using OpenCode flags, run `bunx @ccusage/opencode@<pinned> --help` and record supported flags; skip unsupported flags and append `errors[]` note.
   - Add a single `runCliCommand()` helper module so tests can stub CLI execution and load fixtures.
 
   **Must NOT do**:
