@@ -80,7 +80,8 @@ Build a web dashboard for local agents (Claude Code, OpenCode) using TypeScript 
   - Dev: `<script type="module" src="/src/entry-client.tsx"></script>`
   - Prod: `<script type="module" src="/static/client.js"></script>`
 - Production static assets:
-  - Use `serveStatic` from `@hono/node-server/serve-static` to serve `dist/static/*` at `/static/*`.
+  - `preview` runs from repo root: `node dist/index.js`.
+  - Use absolute path derived from `new URL('.', import.meta.url)` to set `serveStatic({ root })` so it always resolves `dist/static` correctly.
 - Tooling requirements:
   - `package.json` must include `"type": "module"` per Hono Vite plugins.
   - Node >= 18.14.1 (Hono Node adapter requirement).
@@ -94,6 +95,12 @@ Build a web dashboard for local agents (Claude Code, OpenCode) using TypeScript 
 - Render a chart placeholder server-side (`div` with fixed height and a skeleton).
 - Render the Recharts chart only on the client after hydration (lazy import + `useEffect` flag).
 - This avoids hydration mismatch and DOM-dependent chart failures.
+
+### Client Navigation Data Loading
+- SPA navigation loads data on route change:
+  - Each page component calls its loader on mount and when params/query change.
+  - SSR initial state is used only for the first render to avoid flash.
+- Acceptance: clicking from `/` to `/agents/claude` should load data without manual refresh.
 
 ### Initial State Hydration Contract
 - SSR embeds a script tag: `window.__INITIAL_STATE__ = <json>`.
@@ -143,6 +150,7 @@ Settings apply after the first manual refresh in the current session. SSR uses d
   - `breakdown=1|0`
 - For CLI-backed periods, these map to flags (`--mode`, `--timezone`, `--start-of-week`, `--breakdown`).
 - For library-backed periods (daily/monthly/session), only `mode` is passed to loaders; `timezone/startOfWeek/breakdown` are ignored and the UI shows a note.
+- Note location: settings panel displays a warning banner listing ignored settings.
 
 ---
 
