@@ -113,7 +113,7 @@ Deliver a local, SSR web dashboard that visualizes Claude Code and OpenCode usag
 - Manual refresh replaces state from `/api/usage`.
 
 ### SSR Data Loading Flow
-- SSR calls the same internal data-loading functions used by `/api/usage` (shared module), not HTTP requests, to avoid duplicate logic.
+- SSR calls the same internal data-loading functions used by `/api/usage` (shared module), not HTTP requests.
 - Errors/empty state returned from data-loading functions are embedded into initial state and rendered in the UI.
 - `/api/usage` simply serializes the same data-loading results as JSON.
 
@@ -221,10 +221,11 @@ Settings apply after the first manual refresh in the current session. SSR uses d
 
 ## Data Sources and Normalization
 
-### Library vs CLI Sources
-- **Library loaders** (Claude Code): daily, monthly, session (from `docs/ccusage/library-usage.md`).
-- **CLI JSON** (Claude Code): weekly, blocks.
-- **CLI JSON** (OpenCode): daily, weekly, monthly, session.
+### Source-of-Truth Schema Decision
+For each source, use the following canonical shape:
+- **Claude daily/monthly/session (library)**: use the actual TypeScript types from `ccusage/data-loader` in node_modules after install. Treat these types as the canonical shape for normalization; add a short “shape snapshot” in comments once verified.
+- **Claude weekly/blocks (CLI)**: use fixture-captured JSON; treat fixture schema as canonical.
+- **OpenCode daily/weekly/monthly/session (CLI)**: use fixture-captured JSON; treat fixture schema as canonical.
 
 ### Canonical JSON Schemas (by command)
 Because ccusage docs show multiple JSON shapes across pages, the plan requires capturing actual CLI output and using fixtures as the source of truth.
@@ -300,10 +301,11 @@ Use CLI flags from `docs/ccusage/cli-options.md`:
   - Set cost fields to `0` and append `errors[]` with “Pricing cache missing; costs may be zero.”
   - Include this message in the setup checklist.
 
-### Empty State Detection
+### Empty State Detection (verified)
 - **Claude Code**:
-  - If `CLAUDE_CONFIG_DIR` is set: split by comma, trim, and check each dir. If a dir does not end with `/projects`, also check `${dir}/projects` (`docs/ccusage/directory-detection.md`).
+  - If `CLAUDE_CONFIG_DIR` is set, treat each comma-separated entry as a root that already contains `projects/` per `docs/ccusage/directory-detection.md` examples. If the path does not contain `projects/`, append it and check both.
   - If not set: check `~/.config/claude/projects/` and `~/.claude/projects/`.
+  - Always verify actual resolved paths by running `ccusage daily --debug` once and noting the detected paths in logs.
 - **OpenCode**:
   - If `OPENCODE_DATA_DIR` is set: check `${OPENCODE_DATA_DIR}/storage`.
   - If not set: check `~/.local/share/opencode/storage`.
@@ -322,9 +324,10 @@ Use CLI flags from `docs/ccusage/cli-options.md`:
   - Non-zero exit or JSON parse failure → `errors[]` populated and HTTP 500.
   - Missing data directories → HTTP 200 with `emptyState.isEmpty=true`.
 
-### Fixtures Policy
+### Fixtures Policy (deterministic)
 - Store fixtures under `fixtures/ccusage/` and `fixtures/opencode/`.
 - Sanitize project names and session IDs by stable hashing:
+  - Hash algorithm: SHA-256, hex, first 8 chars.
   - Replace any project/session/path identifiers with `hash:<shortHash>`.
   - Store the mapping in `fixtures/.map.json` and exclude it via `.gitignore`.
 - Commit sanitized fixtures only.
@@ -366,7 +369,7 @@ Task 1 → Task 2 → Task 3 → Task 4
 
   **What to do**:
   - Create `package.json` with scripts: `dev`, `build`, `preview`, `test`.
-  - Add dependencies: `react`, `react-dom`, `react-router-dom`, `hono`.
+  - Add dependencies: `react`, `react-dom`, `react-router-dom`, `hono`, `recharts`.
   - Add dev dependencies: `vite`, `@vitejs/plugin-react`, `@hono/vite-dev-server`, `@hono/vite-build`, `typescript`, `vitest`, `@testing-library/react`.
   - Add `tsconfig.json` suitable for Vite + React.
   - Create base dirs: `src/`, `public/`.
@@ -431,6 +434,7 @@ Task 1 → Task 2 → Task 3 → Task 4
   - Implement empty-state detection using the defined path rules and env vars.
   - Return “unsupported blocks for OpenCode” response for `agent=opencode&period=blocks`.
   - Before using OpenCode flags, run `bunx @ccusage/opencode@latest --help` and record supported flags; skip unsupported flags and append `errors[]` note.
+  - Add a single `runCliCommand()` helper module so tests can stub CLI execution and load fixtures.
 
   **Must NOT do**:
   - Do not call any external network APIs.
