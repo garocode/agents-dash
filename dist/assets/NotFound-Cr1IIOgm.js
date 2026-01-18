@@ -1,0 +1,1 @@
+import{j as t,d as o}from"../index.js";import"util";import"crypto";import"async_hooks";import"stream";import"fs";import"path";import"process";import"http";import"http2";function u(){return t.jsxs("div",{children:[t.jsx("h1",{children:"404 - Page Not Found"}),t.jsx(o.Link,{to:"/",children:"Back to Overview"})]})}export{u as default};

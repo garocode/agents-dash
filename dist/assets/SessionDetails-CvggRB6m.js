@@ -1,0 +1,1 @@
+import{j as i}from"../index.js";import"util";import"crypto";import"async_hooks";import"stream";import"fs";import"path";import"process";import"http";import"http2";function x({initialState:t}){return i.jsx("div",{children:"Session Details Page"})}export{x as default};

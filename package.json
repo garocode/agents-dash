@@ -1,0 +1,33 @@
+{
+  "name": "agents-dash",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --mode client && vite build",
+    "preview": "node dist/index.js",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-router-dom": "7.12.0",
+    "hono": "4.11.4",
+    "recharts": "3.6.0",
+    "ccusage": "18.0.5",
+    "@ccusage/opencode": "18.0.5"
+  },
+  "devDependencies": {
+    "@hono/vite-build": "1.9.1",
+    "@hono/vite-dev-server": "0.24.1",
+    "@testing-library/react": "16.3.1",
+    "@types/node": "^25.0.9",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "5.1.2",
+    "typescript": "5.9.3",
+    "vite": "7.3.1",
+    "vitest": "4.0.17"
+  }
+}

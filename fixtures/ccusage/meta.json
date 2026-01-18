@@ -1,0 +1,14 @@
+{
+  "capturedAt": "2026-01-18",
+  "versions": {
+    "ccusage": "18.0.5"
+  },
+  "nodeVersion": "v23.10.0",
+  "commands": {
+    "daily": "LOG_LEVEL=0 bunx ccusage@18.0.5 daily --json --offline --since YYYYMM01 --until YYYYMMDD",
+    "weekly": "LOG_LEVEL=0 bunx ccusage@18.0.5 weekly --json --offline --since YYYYMM01 --until YYYYMMDD --start-of-week sunday",
+    "monthly": "LOG_LEVEL=0 bunx ccusage@18.0.5 monthly --json --offline --since YYYYMM01 --until YYYYMMDD",
+    "session": "LOG_LEVEL=0 bunx ccusage@18.0.5 session --json --offline --since YYYYMM01 --until YYYYMMDD",
+    "blocks": "LOG_LEVEL=0 bunx ccusage@18.0.5 blocks --json --offline --recent"
+  }
+}

@@ -1,0 +1,1 @@
+import{j as t}from"../index.js";import"util";import"crypto";import"async_hooks";import"stream";import"fs";import"path";import"process";import"http";import"http2";function x({initialState:i}){return t.jsx("div",{children:"Agent Details Page"})}export{x as default};

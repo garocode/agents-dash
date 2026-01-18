@@ -1,0 +1,2670 @@
+{
+  "sessions": [
+    {
+      "sessionId": "-Users-nico-Downloads-splitrail-v3-3-0-aarch64-apple-darwin",
+      "inputTokens": 18,
+      "outputTokens": 12,
+      "cacheCreationTokens": 43741,
+      "cacheReadTokens": 43741,
+      "totalTokens": 87512,
+      "totalCost": 0.29564175000000004,
+      "lastActivity": "2026-01-17",
+      "modelsUsed": [
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 18,
+          "outputTokens": 12,
+          "cacheCreationTokens": 43741,
+          "cacheReadTokens": 43741,
+          "cost": 0.29564175000000004
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "-Users-nico",
+      "inputTokens": 12454,
+      "outputTokens": 847,
+      "cacheCreationTokens": 112403,
+      "cacheReadTokens": 402433,
+      "totalTokens": 528137,
+      "totalCost": 0.89222025,
+      "lastActivity": "2026-01-15",
+      "modelsUsed": [
+        "claude-opus-4-5-20251101",
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 90,
+          "outputTokens": 47,
+          "cacheCreationTokens": 100303,
+          "cacheReadTokens": 402433,
+          "cost": 0.8297352499999999
+        },
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 8,
+          "outputTokens": 73,
+          "cacheCreationTokens": 12100,
+          "cacheReadTokens": 0,
+          "cost": 0.046493999999999994
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 12356,
+          "outputTokens": 727,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 0,
+          "cost": 0.015991
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 223,
+      "cacheCreationTokens": 36611,
+      "cacheReadTokens": 0,
+      "totalTokens": 36843,
+      "totalCost": 0.15634175,
+      "lastActivity": "2026-01-15",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 5,
+          "cacheCreationTokens": 21866,
+          "cacheReadTokens": 0,
+          "cost": 0.1368175
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 218,
+          "cacheCreationTokens": 14745,
+          "cacheReadTokens": 0,
+          "cost": 0.019524250000000003
+        }
+      ],
+      "projectPath": "-private-var-folders-16-52lp3my11kx5nzxk9t3dd8hc0000gn-T-vibe-kanban-worktrees-1c1b-hi-dotfiles/829e9f5e-dbeb-4641-811e-c0946ea18582"
+    },
+    {
+      "sessionId": "-private-var-folders-16-52lp3my11kx5nzxk9t3dd8hc0000gn-T-vibe-kanban-worktrees-1c1b-hi-dotfiles",
+      "inputTokens": 3,
+      "outputTokens": 12,
+      "cacheCreationTokens": 21610,
+      "cacheReadTokens": 0,
+      "totalTokens": 21625,
+      "totalCost": 0.1353775,
+      "lastActivity": "2026-01-15",
+      "modelsUsed": [
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 3,
+          "outputTokens": 12,
+          "cacheCreationTokens": 21610,
+          "cacheReadTokens": 0,
+          "cost": 0.1353775
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 7,
+      "outputTokens": 374,
+      "cacheCreationTokens": 29335,
+      "cacheReadTokens": 14538,
+      "totalTokens": 44254,
+      "totalCost": 0.12416075,
+      "lastActivity": "2026-01-15",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 4,
+          "outputTokens": 188,
+          "cacheCreationTokens": 14914,
+          "cacheReadTokens": 14538,
+          "cost": 0.1052015
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 186,
+          "cacheCreationTokens": 14421,
+          "cacheReadTokens": 0,
+          "cost": 0.01895925
+        }
+      ],
+      "projectPath": "-private-var-folders-16-52lp3my11kx5nzxk9t3dd8hc0000gn-T-vibe-kanban-worktrees-7009-i-got-this-error-agents-dashboard/44175919-845a-458e-b67c-0e8f18ca1dce"
+    },
+    {
+      "sessionId": "-private-var-folders-16-52lp3my11kx5nzxk9t3dd8hc0000gn-T-vibe-kanban-worktrees-7009-i-got-this-error-agents-dashboard",
+      "inputTokens": 3860,
+      "outputTokens": 5770,
+      "cacheCreationTokens": 124659,
+      "cacheReadTokens": 1189115,
+      "totalTokens": 1323404,
+      "totalCost": 1.5372262500000002,
+      "lastActivity": "2026-01-15",
+      "modelsUsed": [
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 3860,
+          "outputTokens": 5770,
+          "cacheCreationTokens": 124659,
+          "cacheReadTokens": 1189115,
+          "cost": 1.5372262500000002
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 11,
+      "outputTokens": 349,
+      "cacheCreationTokens": 15351,
+      "cacheReadTokens": 42064,
+      "totalTokens": 57775,
+      "totalCost": 0.09800855,
+      "lastActivity": "2026-01-15",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 8,
+          "outputTokens": 175,
+          "cacheCreationTokens": 11333,
+          "cacheReadTokens": 31651,
+          "cost": 0.09107175
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 174,
+          "cacheCreationTokens": 4018,
+          "cacheReadTokens": 10413,
+          "cost": 0.0069368
+        }
+      ],
+      "projectPath": "-private-var-folders-16-52lp3my11kx5nzxk9t3dd8hc0000gn-T-vibe-kanban-worktrees-7009-i-got-this-error-agents-dashboard/8de99611-e8fe-4a54-84b5-e2f9d0c16a6c"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 11,
+      "outputTokens": 377,
+      "cacheCreationTokens": 15526,
+      "cacheReadTokens": 42098,
+      "totalTokens": 58012,
+      "totalCost": 0.09891430000000001,
+      "lastActivity": "2026-01-15",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 8,
+          "outputTokens": 162,
+          "cacheCreationTokens": 11491,
+          "cacheReadTokens": 31685,
+          "cost": 0.09175125000000002
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 215,
+          "cacheCreationTokens": 4035,
+          "cacheReadTokens": 10413,
+          "cost": 0.007163050000000001
+        }
+      ],
+      "projectPath": "-private-var-folders-16-52lp3my11kx5nzxk9t3dd8hc0000gn-T-vibe-kanban-worktrees-7009-i-got-this-error-agents-dashboard/7aed2757-3617-43c7-b58c-ecad31f2140d"
+    },
+    {
+      "sessionId": "-private-var-folders-16-52lp3my11kx5nzxk9t3dd8hc0000gn-T-vibe-kanban-worktrees-c00e-start-the-server-agents-dashboard",
+      "inputTokens": 2,
+      "outputTokens": 343,
+      "cacheCreationTokens": 23772,
+      "cacheReadTokens": 45403,
+      "totalTokens": 69520,
+      "totalCost": 0.1798615,
+      "lastActivity": "2026-01-15",
+      "modelsUsed": [
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 2,
+          "outputTokens": 343,
+          "cacheCreationTokens": 23772,
+          "cacheReadTokens": 45403,
+          "cost": 0.1798615
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "-private-var-folders-16-52lp3my11kx5nzxk9t3dd8hc0000gn-T-vibe-kanban-worktrees-d02f-interview-me-in-dotfiles",
+      "inputTokens": 4,
+      "outputTokens": 204,
+      "cacheCreationTokens": 36569,
+      "cacheReadTokens": 70388,
+      "totalTokens": 107165,
+      "totalCost": 0.26887025,
+      "lastActivity": "2026-01-15",
+      "modelsUsed": [
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 4,
+          "outputTokens": 204,
+          "cacheCreationTokens": 36569,
+          "cacheReadTokens": 70388,
+          "cost": 0.26887025
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "-Users-nico-Downloads-Workspace-garocode-dotfiles",
+      "inputTokens": 19700,
+      "outputTokens": 2872,
+      "cacheCreationTokens": 401090,
+      "cacheReadTokens": 1628417,
+      "totalTokens": 2052079,
+      "totalCost": 3.0204488999999994,
+      "lastActivity": "2026-01-14",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 2164,
+          "outputTokens": 953,
+          "cacheCreationTokens": 336083,
+          "cacheReadTokens": 1399503,
+          "cost": 2.83491525
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 16516,
+          "outputTokens": 759,
+          "cacheCreationTokens": 48762,
+          "cacheReadTokens": 228914,
+          "cost": 0.10415490000000002
+        },
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 1020,
+          "outputTokens": 1160,
+          "cacheCreationTokens": 16245,
+          "cacheReadTokens": 0,
+          "cost": 0.08137875
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "-Users-nico-Downloads-Workspace-fabulous-backend-functions",
+      "inputTokens": 3235,
+      "outputTokens": 1466,
+      "cacheCreationTokens": 29686,
+      "cacheReadTokens": 356839,
+      "totalTokens": 391226,
+      "totalCost": 0.3954425,
+      "lastActivity": "2026-01-13",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 1463,
+          "cacheCreationTokens": 26331,
+          "cacheReadTokens": 356839,
+          "cost": 0.37959324999999994
+        },
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 2,
+          "outputTokens": 2,
+          "cacheCreationTokens": 3355,
+          "cacheReadTokens": 0,
+          "cost": 0.01261725
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3227,
+          "outputTokens": 1,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 0,
+          "cost": 0.0032319999999999996
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 6,
+      "outputTokens": 132,
+      "cacheCreationTokens": 32147,
+      "cacheReadTokens": 0,
+      "totalTokens": 32285,
+      "totalCost": 0.13705575,
+      "lastActivity": "2026-01-12",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 4,
+          "outputTokens": 4,
+          "cacheCreationTokens": 19222,
+          "cacheReadTokens": 0,
+          "cost": 0.1202575
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2,
+          "outputTokens": 128,
+          "cacheCreationTokens": 12925,
+          "cacheReadTokens": 0,
+          "cost": 0.01679825
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Local-Torrents-test/3e10b9a2-ffc4-4ca7-bd81-55d4eee8ffd2"
+    },
+    {
+      "sessionId": "-Users-nico-Downloads-Local-Torrents-test",
+      "inputTokens": 622,
+      "outputTokens": 377,
+      "cacheCreationTokens": 261227,
+      "cacheReadTokens": 6580967,
+      "totalTokens": 6843193,
+      "totalCost": 4.935687250000001,
+      "lastActivity": "2026-01-12",
+      "modelsUsed": [
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 622,
+          "outputTokens": 377,
+          "cacheCreationTokens": 261227,
+          "cacheReadTokens": 6580967,
+          "cost": 4.935687250000001
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 6,
+      "outputTokens": 211,
+      "cacheCreationTokens": 25967,
+      "cacheReadTokens": 6180,
+      "totalTokens": 32364,
+      "totalCost": 0.10191575000000001,
+      "lastActivity": "2026-01-12",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 4,
+          "outputTokens": 4,
+          "cacheCreationTokens": 13042,
+          "cacheReadTokens": 6180,
+          "cost": 0.0847225
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2,
+          "outputTokens": 207,
+          "cacheCreationTokens": 12925,
+          "cacheReadTokens": 0,
+          "cost": 0.01719325
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Local-Torrents-test/d6e3decb-e56e-42d3-b9d9-e2e4c784f6af"
+    },
+    {
+      "sessionId": "-Users-nico-Downloads-Workspace-garocode-sitodo",
+      "inputTokens": 2975,
+      "outputTokens": 335,
+      "cacheCreationTokens": 73262,
+      "cacheReadTokens": 304599,
+      "totalTokens": 381171,
+      "totalCost": 0.5760839999999999,
+      "lastActivity": "2026-01-12",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 58,
+          "outputTokens": 14,
+          "cacheCreationTokens": 61589,
+          "cacheReadTokens": 304599,
+          "cost": 0.53787075
+        },
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 5,
+          "outputTokens": 54,
+          "cacheCreationTokens": 7420,
+          "cacheReadTokens": 0,
+          "cost": 0.028650000000000002
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2912,
+          "outputTokens": 267,
+          "cacheCreationTokens": 4253,
+          "cacheReadTokens": 0,
+          "cost": 0.00956325
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 1411,
+      "outputTokens": 133,
+      "cacheCreationTokens": 104095,
+      "cacheReadTokens": 785996,
+      "totalTokens": 891635,
+      "totalCost": 0.31009835,
+      "lastActivity": "2026-01-12",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 1405,
+          "outputTokens": 22,
+          "cacheCreationTokens": 84683,
+          "cacheReadTokens": 785996,
+          "cost": 0.18596835000000003
+        },
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 111,
+          "cacheCreationTokens": 19412,
+          "cacheReadTokens": 0,
+          "cost": 0.12413000000000002
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-sitodo/e7e664d5-bcf9-49eb-9292-94fb65f3d82d"
+    },
+    {
+      "sessionId": "-Users-nico-Downloads-Workspace-unsync-garokid",
+      "inputTokens": 3236,
+      "outputTokens": 320,
+      "cacheCreationTokens": 64679,
+      "cacheReadTokens": 397605,
+      "totalTokens": 465840,
+      "totalCost": 0.6017517500000003,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-opus-4-5-20251101",
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 79,
+          "outputTokens": 16,
+          "cacheCreationTokens": 61398,
+          "cacheReadTokens": 397605,
+          "cost": 0.5833350000000002
+        },
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 3,
+          "outputTokens": 143,
+          "cacheCreationTokens": 3281,
+          "cacheReadTokens": 0,
+          "cost": 0.01445775
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3154,
+          "outputTokens": 161,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 0,
+          "cost": 0.003959
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "-Users-nico-Downloads-Workspace-garocode-opencode-web",
+      "inputTokens": 12714,
+      "outputTokens": 7645,
+      "cacheCreationTokens": 155310,
+      "cacheReadTokens": 831319,
+      "totalTokens": 1006988,
+      "totalCost": 1.1883944,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 95,
+          "outputTokens": 919,
+          "cacheCreationTokens": 110149,
+          "cacheReadTokens": 576555,
+          "cost": 1.00015875
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 12607,
+          "outputTokens": 3993,
+          "cacheCreationTokens": 32079,
+          "cacheReadTokens": 254764,
+          "cost": 0.09814715
+        },
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 12,
+          "outputTokens": 2733,
+          "cacheCreationTokens": 13082,
+          "cacheReadTokens": 0,
+          "cost": 0.0900885
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 2577,
+      "outputTokens": 120,
+      "cacheCreationTokens": 95469,
+      "cacheReadTokens": 509722,
+      "totalTokens": 607888,
+      "totalCost": 0.27296945,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2571,
+          "outputTokens": 26,
+          "cacheCreationTokens": 75953,
+          "cacheReadTokens": 509722,
+          "cost": 0.14861445
+        },
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 94,
+          "cacheCreationTokens": 19516,
+          "cacheReadTokens": 0,
+          "cost": 0.124355
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-unsync-garokid/a8df7a68-b1d7-4d26-9227-da277111d373"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 284,
+      "cacheCreationTokens": 32966,
+      "cacheReadTokens": 0,
+      "totalTokens": 33259,
+      "totalCost": 0.1435005,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 100,
+          "cacheCreationTokens": 19768,
+          "cacheReadTokens": 0,
+          "cost": 0.12608
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 184,
+          "cacheCreationTokens": 13198,
+          "cacheReadTokens": 0,
+          "cost": 0.017420500000000002
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-opencode-web/dee3b606-6a57-4bf6-8724-2858a39652cd"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 5,
+      "cacheCreationTokens": 13621,
+      "cacheReadTokens": 19414,
+      "totalTokens": 33049,
+      "totalCost": 0.07352345,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 4,
+          "cacheCreationTokens": 10107,
+          "cacheReadTokens": 9707,
+          "cost": 0.06815225
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 1,
+          "cacheCreationTokens": 3514,
+          "cacheReadTokens": 9707,
+          "cost": 0.0053712000000000005
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-dotfiles/d05242f9-6b00-488a-ad96-4a99cadb4a8e"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 109,
+      "outputTokens": 216,
+      "cacheCreationTokens": 90151,
+      "cacheReadTokens": 217610,
+      "totalTokens": 308086,
+      "totalCost": 0.23622274999999998,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 100,
+          "cacheCreationTokens": 19712,
+          "cacheReadTokens": 0,
+          "cost": 0.12573
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 103,
+          "outputTokens": 116,
+          "cacheCreationTokens": 70439,
+          "cacheReadTokens": 217610,
+          "cost": 0.11049275000000001
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-opencode-web/c2fedc9e-5f53-4057-9f9f-a5cd4cc925a4"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 188,
+      "cacheCreationTokens": 32885,
+      "cacheReadTokens": 0,
+      "totalTokens": 33082,
+      "totalCost": 0.14100925,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 18,
+          "cacheCreationTokens": 19714,
+          "cacheReadTokens": 0,
+          "cost": 0.12369250000000001
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 170,
+          "cacheCreationTokens": 13171,
+          "cacheReadTokens": 0,
+          "cost": 0.017316750000000002
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-opencode-web/a917f2f0-7f08-405b-9359-aa93965405df"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 60,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 32885,
+      "totalTokens": 32954,
+      "totalCost": 0.0116471,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 7,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 19714,
+          "cost": 0.010062
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 53,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 13171,
+          "cost": 0.0015850999999999999
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-opencode-web/40106987-55c4-4ddf-a032-eb5a724b441d"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 123,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 32885,
+      "totalTokens": 33017,
+      "totalCost": 0.011902099999999999,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 4,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 19714,
+          "cost": 0.009987
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 119,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 13171,
+          "cost": 0.0019150999999999999
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-opencode-web/5ccdc2f8-a6c9-44e3-bea8-a1fdc4ea9217"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 96,
+      "cacheCreationTokens": 33029,
+      "cacheReadTokens": 0,
+      "totalTokens": 33134,
+      "totalCost": 0.14274925000000002,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 95,
+          "cacheCreationTokens": 19810,
+          "cacheReadTokens": 0,
+          "cost": 0.1262175
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 1,
+          "cacheCreationTokens": 13219,
+          "cacheReadTokens": 0,
+          "cost": 0.01653175
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-dotfiles/a30d8ad6-5a54-4a1e-94be-601bdace6dae"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 9,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 33029,
+      "totalTokens": 33047,
+      "totalCost": 0.0114649,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 8,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 19810,
+          "cost": 0.010135
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 1,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 13219,
+          "cost": 0.0013299
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-dotfiles/a51e31b6-a403-4844-9ca4-460ae4093c21"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 5,
+      "cacheCreationTokens": 13624,
+      "cacheReadTokens": 19414,
+      "totalTokens": 33052,
+      "totalCost": 0.0735372,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 4,
+          "cacheCreationTokens": 10109,
+          "cacheReadTokens": 9707,
+          "cost": 0.06816475
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 1,
+          "cacheCreationTokens": 3515,
+          "cacheReadTokens": 9707,
+          "cost": 0.00537245
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-dotfiles/6a0d41c6-6c01-4e92-b379-5120f79899c9"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 96,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 33038,
+      "totalTokens": 33143,
+      "totalCost": 0.0136432,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 95,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 19816,
+          "cost": 0.012313
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 1,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 13222,
+          "cost": 0.0013302
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-dotfiles/b532743f-b94e-4e6d-b20a-5a26f861e199"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 6,
+      "outputTokens": 142,
+      "cacheCreationTokens": 12703,
+      "cacheReadTokens": 19414,
+      "totalTokens": 32265,
+      "totalCost": 0.07028994999999999,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 4,
+          "outputTokens": 19,
+          "cacheCreationTokens": 9495,
+          "cacheReadTokens": 9707,
+          "cost": 0.06469225
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2,
+          "outputTokens": 123,
+          "cacheCreationTokens": 3208,
+          "cacheReadTokens": 9707,
+          "cost": 0.005597700000000001
+        }
+      ],
+      "projectPath": "-Users-nico/70776529-9278-483d-9ba7-3c14b5caead0"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 6,
+      "outputTokens": 21,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 32117,
+      "totalTokens": 32144,
+      "totalCost": 0.011399500000000002,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 4,
+          "outputTokens": 19,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 19202,
+          "cost": 0.010096
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2,
+          "outputTokens": 2,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 12915,
+          "cost": 0.0013035
+        }
+      ],
+      "projectPath": "-Users-nico/fa9be8c1-a4aa-4758-8785-8747fab9745b"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 6,
+      "outputTokens": 6,
+      "cacheCreationTokens": 32117,
+      "cacheReadTokens": 0,
+      "totalTokens": 32129,
+      "totalCost": 0.13628825000000003,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 4,
+          "outputTokens": 4,
+          "cacheCreationTokens": 19202,
+          "cacheReadTokens": 0,
+          "cost": 0.1201325
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2,
+          "outputTokens": 2,
+          "cacheCreationTokens": 12915,
+          "cacheReadTokens": 0,
+          "cost": 0.016155750000000003
+        }
+      ],
+      "projectPath": "-Users-nico/f9d6427d-5e3e-4ef7-8005-24370e22acad"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 6,
+      "outputTokens": 125,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 32117,
+      "totalTokens": 32248,
+      "totalCost": 0.0121195,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 4,
+          "outputTokens": 29,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 19202,
+          "cost": 0.010346000000000001
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2,
+          "outputTokens": 96,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 12915,
+          "cost": 0.0017735
+        }
+      ],
+      "projectPath": "-Users-nico/37d2ba19-4048-4c63-b456-82874cfac7b1"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 202,
+      "cacheCreationTokens": 13624,
+      "cacheReadTokens": 19414,
+      "totalTokens": 33249,
+      "totalCost": 0.0763422,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 95,
+          "cacheCreationTokens": 10109,
+          "cacheReadTokens": 9707,
+          "cost": 0.07043975
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 107,
+          "cacheCreationTokens": 3515,
+          "cacheReadTokens": 9707,
+          "cost": 0.00590245
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-dotfiles/c9ace837-78ce-48d9-bbce-bf677e11b54e"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 9,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 33038,
+      "totalTokens": 33056,
+      "totalCost": 0.011468200000000001,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 8,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 19816,
+          "cost": 0.010138000000000001
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 1,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 13222,
+          "cost": 0.0013302
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-dotfiles/8ac57b2c-5813-4e43-8746-bb5eba1e070b"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 12,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 33038,
+      "totalTokens": 33059,
+      "totalCost": 0.0114832,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 8,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 19816,
+          "cost": 0.010138000000000001
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 4,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 13222,
+          "cost": 0.0013452
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-dotfiles/1ee3a002-c42c-444f-9a4a-8b872493488b"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 3,
+      "outputTokens": 119,
+      "cacheCreationTokens": 3342,
+      "cacheReadTokens": 9707,
+      "totalTokens": 13171,
+      "totalCost": 0.0057462,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 119,
+          "cacheCreationTokens": 3342,
+          "cacheReadTokens": 9707,
+          "cost": 0.0057462
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-unsync-genealogy/6a499281-23cb-4f63-b9e9-9086aa4e270c"
+    },
+    {
+      "sessionId": "-Users-nico-Downloads-Workspace-unsync-genealogy",
+      "inputTokens": 3035,
+      "outputTokens": 159,
+      "cacheCreationTokens": 3159,
+      "cacheReadTokens": 0,
+      "totalTokens": 6353,
+      "totalCost": 0.01618225,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 3,
+          "outputTokens": 50,
+          "cacheCreationTokens": 3159,
+          "cacheReadTokens": 0,
+          "cost": 0.01260525
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3032,
+          "outputTokens": 109,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 0,
+          "cost": 0.003577
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 102,
+      "cacheCreationTokens": 32852,
+      "cacheReadTokens": 0,
+      "totalTokens": 32963,
+      "totalCost": 0.142088,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 101,
+          "cacheCreationTokens": 19692,
+          "cacheReadTokens": 0,
+          "cost": 0.12563000000000002
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 1,
+          "cacheCreationTokens": 13160,
+          "cacheReadTokens": 0,
+          "cost": 0.016458000000000004
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-unsync-genealogy-gedviz/3e13935c-5df9-4d35-88a9-587b113974f1"
+    },
+    {
+      "sessionId": "-Users-nico-Downloads-Workspace-unsync-genealogy-gedviz",
+      "inputTokens": 599,
+      "outputTokens": 18,
+      "cacheCreationTokens": 50549,
+      "cacheReadTokens": 384772,
+      "totalTokens": 435938,
+      "totalCost": 0.5117622500000001,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 599,
+          "outputTokens": 18,
+          "cacheCreationTokens": 50549,
+          "cacheReadTokens": 384772,
+          "cost": 0.5117622500000001
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 178,
+      "cacheCreationTokens": 33104,
+      "cacheReadTokens": 0,
+      "totalTokens": 33291,
+      "totalCost": 0.143623,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 101,
+          "cacheCreationTokens": 19860,
+          "cacheReadTokens": 0,
+          "cost": 0.12668000000000001
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 77,
+          "cacheCreationTokens": 13244,
+          "cacheReadTokens": 0,
+          "cost": 0.016943
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-dotfiles/d9cfad6f-b5f3-449e-bbd2-32e43f17e944"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 266,
+      "cacheCreationTokens": 13633,
+      "cacheReadTokens": 19414,
+      "totalTokens": 33322,
+      "totalCost": 0.07670345,
+      "lastActivity": "2026-01-11",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 95,
+          "cacheCreationTokens": 10115,
+          "cacheReadTokens": 9707,
+          "cost": 0.07047724999999999
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 171,
+          "cacheCreationTokens": 3518,
+          "cacheReadTokens": 9707,
+          "cost": 0.0062262
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-dotfiles/3f9cd51e-1e00-428b-96b7-0551c4cf3cdb"
+    },
+    {
+      "sessionId": "-Users-nico-Downloads-Web-workspace-unsync-garokid",
+      "inputTokens": 1886,
+      "outputTokens": 12,
+      "cacheCreationTokens": 37915,
+      "cacheReadTokens": 96259,
+      "totalTokens": 136072,
+      "totalCost": 0.28201125000000005,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 20,
+          "outputTokens": 7,
+          "cacheCreationTokens": 35801,
+          "cacheReadTokens": 96259,
+          "cost": 0.27216075
+        },
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 6,
+          "outputTokens": 2,
+          "cacheCreationTokens": 2114,
+          "cacheReadTokens": 0,
+          "cost": 0.0079755
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 1860,
+          "outputTokens": 3,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 0,
+          "cost": 0.001875
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "-Users-nico-Downloads-Web-workspace-unsync-private-notes",
+      "inputTokens": 8928,
+      "outputTokens": 1890,
+      "cacheCreationTokens": 75536,
+      "cacheReadTokens": 285489,
+      "totalTokens": 371843,
+      "totalCost": 0.6556770000000002,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 2170,
+          "outputTokens": 1019,
+          "cacheCreationTokens": 71081,
+          "cacheReadTokens": 285489,
+          "cost": 0.6233257500000001
+        },
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 11,
+          "outputTokens": 451,
+          "cacheCreationTokens": 4455,
+          "cacheReadTokens": 0,
+          "cost": 0.02350425
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 6747,
+          "outputTokens": 420,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 0,
+          "cost": 0.008846999999999999
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles-claude",
+      "inputTokens": 5051,
+      "outputTokens": 101,
+      "cacheCreationTokens": 228382,
+      "cacheReadTokens": 2305890,
+      "totalTokens": 2539424,
+      "totalCost": 2.6081125,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 5051,
+          "outputTokens": 101,
+          "cacheCreationTokens": 228382,
+          "cacheReadTokens": 2305890,
+          "cost": 2.6081125
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 3932,
+      "outputTokens": 709,
+      "cacheCreationTokens": 22204,
+      "cacheReadTokens": 44504,
+      "totalTokens": 71349,
+      "totalCost": 0.14150000000000001,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 3929,
+          "outputTokens": 530,
+          "cacheCreationTokens": 11540,
+          "cacheReadTokens": 44504,
+          "cost": 0.127272
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 179,
+          "cacheCreationTokens": 10664,
+          "cacheReadTokens": 0,
+          "cost": 0.014228000000000001
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles/655e4ea7-4502-4104-9dc4-b7f6f1d9959f"
+    },
+    {
+      "sessionId": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles",
+      "inputTokens": 482,
+      "outputTokens": 340,
+      "cacheCreationTokens": 124416,
+      "cacheReadTokens": 1645716,
+      "totalTokens": 1770954,
+      "totalCost": 1.5805905,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-opus-4-5-20251101",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 437,
+          "outputTokens": 325,
+          "cacheCreationTokens": 117735,
+          "cacheReadTokens": 1576541,
+          "cost": 1.53442425
+        },
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 45,
+          "outputTokens": 15,
+          "cacheCreationTokens": 6681,
+          "cacheReadTokens": 69175,
+          "cost": 0.04616625
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 379,
+      "cacheCreationTokens": 25767,
+      "cacheReadTokens": 0,
+      "totalTokens": 26155,
+      "totalCost": 0.07366225,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 6,
+          "outputTokens": 190,
+          "cacheCreationTokens": 15055,
+          "cacheReadTokens": 0,
+          "cost": 0.059324249999999995
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 189,
+          "cacheCreationTokens": 10712,
+          "cacheReadTokens": 0,
+          "cost": 0.014338
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles/4962e505-beda-4a15-b741-c49b64428f76"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 24,
+      "outputTokens": 258,
+      "cacheCreationTokens": 26628,
+      "cacheReadTokens": 43126,
+      "totalTokens": 70036,
+      "totalCost": 0.042884599999999995,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 18,
+          "outputTokens": 163,
+          "cacheCreationTokens": 26628,
+          "cacheReadTokens": 28071,
+          "cost": 0.0369251
+        },
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 6,
+          "outputTokens": 95,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 15055,
+          "cost": 0.0059594999999999995
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles/089fcae9-14ce-4d27-b887-e0c5fddf9a35"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 8,
+      "cacheCreationTokens": 26243,
+      "cacheReadTokens": 0,
+      "totalTokens": 26260,
+      "totalCost": 0.10940675000000001,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 5,
+          "cacheCreationTokens": 15286,
+          "cacheReadTokens": 0,
+          "cost": 0.09569250000000001
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 3,
+          "cacheCreationTokens": 10957,
+          "cacheReadTokens": 0,
+          "cost": 0.013714250000000002
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles/5de8375e-2fac-4215-9f28-3b8c61d86dac"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 166,
+      "cacheCreationTokens": 26225,
+      "cacheReadTokens": 0,
+      "totalTokens": 26400,
+      "totalCost": 0.11009425,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 4,
+          "cacheCreationTokens": 15274,
+          "cacheReadTokens": 0,
+          "cost": 0.09559250000000001
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 162,
+          "cacheCreationTokens": 10951,
+          "cacheReadTokens": 0,
+          "cost": 0.01450175
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles/4d5bda3b-e9ef-4ae1-ba9a-6ffdf2d9ceae"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 63,
+      "outputTokens": 3358,
+      "cacheCreationTokens": 24409,
+      "cacheReadTokens": 98563,
+      "totalTokens": 126393,
+      "totalCost": 0.18062265000000002,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 54,
+          "outputTokens": 3163,
+          "cacheCreationTokens": 17595,
+          "cacheReadTokens": 79155,
+          "cost": 0.13733475
+        },
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 5,
+          "cacheCreationTokens": 5568,
+          "cacheReadTokens": 9704,
+          "cost": 0.039807
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 190,
+          "cacheCreationTokens": 1246,
+          "cacheReadTokens": 9704,
+          "cost": 0.0034809000000000003
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles/e7541d22-4062-4c03-8bd2-56a993c61220"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 171,
+      "cacheCreationTokens": 26219,
+      "cacheReadTokens": 0,
+      "totalTokens": 26399,
+      "totalCost": 0.11009175000000002,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 4,
+          "cacheCreationTokens": 15270,
+          "cacheReadTokens": 0,
+          "cost": 0.0955675
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 167,
+          "cacheCreationTokens": 10949,
+          "cacheReadTokens": 0,
+          "cost": 0.01452425
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles/9e1ec445-a2ab-4dbb-9582-15e27d1eda01"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 21,
+      "cacheCreationTokens": 6862,
+      "cacheReadTokens": 19408,
+      "totalTokens": 26300,
+      "totalCost": 0.0429379,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 20,
+          "cacheCreationTokens": 5600,
+          "cacheReadTokens": 9704,
+          "cost": 0.040382
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 1,
+          "cacheCreationTokens": 1262,
+          "cacheReadTokens": 9704,
+          "cost": 0.0025559
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles/d09531e6-c580-4cca-8dbc-00903f291a39"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 21,
+      "cacheCreationTokens": 26213,
+      "cacheReadTokens": 0,
+      "totalTokens": 26243,
+      "totalCost": 0.10963425000000002,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 20,
+          "cacheCreationTokens": 15266,
+          "cacheReadTokens": 0,
+          "cost": 0.09594250000000001
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 1,
+          "cacheCreationTokens": 10947,
+          "cacheReadTokens": 0,
+          "cost": 0.01369175
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles/2cf870d2-64e4-4ec6-87d4-f8619de7fdf5"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 279,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 26213,
+      "totalTokens": 26501,
+      "totalCost": 0.012015699999999999,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 93,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 15266,
+          "cost": 0.009988
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 186,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 10947,
+          "cost": 0.0020277
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles/db2a488b-c577-40bf-8513-857f9d23fb1b"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 177,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 26213,
+      "totalTokens": 26399,
+      "totalCost": 0.0097457,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 5,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 15266,
+          "cost": 0.007788
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 172,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 10947,
+          "cost": 0.0019576999999999997
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles/ba11b1d3-ff42-44e5-837e-e7c6753b9004"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 180,
+      "cacheCreationTokens": 6829,
+      "cacheReadTokens": 19408,
+      "totalTokens": 26426,
+      "totalCost": 0.043281650000000005,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 5,
+          "cacheCreationTokens": 5578,
+          "cacheReadTokens": 9704,
+          "cost": 0.0398695
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 175,
+          "cacheCreationTokens": 1251,
+          "cacheReadTokens": 9704,
+          "cost": 0.00341215
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles/88c71cd2-cf66-494d-a486-22c840c591d4"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 233,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 26237,
+      "totalTokens": 26479,
+      "totalCost": 0.0114745,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 77,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 15282,
+          "cost": 0.009596
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 156,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 10955,
+          "cost": 0.0018785
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles/d63c776c-a2e2-4dac-b132-02755960f90e"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 150,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 26237,
+      "totalTokens": 26396,
+      "totalCost": 0.0099195,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 20,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 15282,
+          "cost": 0.008171
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 130,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 10955,
+          "cost": 0.0017485
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles/1ff76cdb-0ece-491d-b569-8eab8911b8c4"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 168,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 26237,
+      "totalTokens": 26414,
+      "totalCost": 0.0096895,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 4,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 15282,
+          "cost": 0.007771
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 164,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 10955,
+          "cost": 0.0019185
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles/82a907c0-9bc7-4c08-8214-f67745ae5a09"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 6,
+      "outputTokens": 4,
+      "cacheCreationTokens": 25994,
+      "cacheReadTokens": 0,
+      "totalTokens": 26004,
+      "totalCost": 0.1081945,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-opus-4-5-20251101",
+        "claude-haiku-4-5-20251001"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 4,
+          "outputTokens": 3,
+          "cacheCreationTokens": 15120,
+          "cacheReadTokens": 0,
+          "cost": 0.094595
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2,
+          "outputTokens": 1,
+          "cacheCreationTokens": 10874,
+          "cacheReadTokens": 0,
+          "cost": 0.0135995
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles-claude/546b11a2-7388-42c9-8d03-b7bca98b4616"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 6,
+      "outputTokens": 190,
+      "cacheCreationTokens": 6604,
+      "cacheReadTokens": 19408,
+      "totalTokens": 26208,
+      "totalCost": 0.0425694,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 4,
+          "outputTokens": 19,
+          "cacheCreationTokens": 5428,
+          "cacheReadTokens": 9704,
+          "cost": 0.039272
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2,
+          "outputTokens": 171,
+          "cacheCreationTokens": 1176,
+          "cacheReadTokens": 9704,
+          "cost": 0.0032974
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles-claude/d7d88e70-c0ef-4adc-8abc-c4fb0cecd29c"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 1134,
+      "outputTokens": 300,
+      "cacheCreationTokens": 7873,
+      "cacheReadTokens": 19408,
+      "totalTokens": 28715,
+      "totalCost": 0.05637565,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 1132,
+          "outputTokens": 109,
+          "cacheCreationTokens": 6274,
+          "cacheReadTokens": 9704,
+          "cost": 0.05244950000000001
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2,
+          "outputTokens": 191,
+          "cacheCreationTokens": 1599,
+          "cacheReadTokens": 9704,
+          "cost": 0.00392615
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles-claude/204f4d00-0fdb-40ff-ada9-f9017851c917"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 18863,
+      "outputTokens": 3230,
+      "cacheCreationTokens": 90964,
+      "cacheReadTokens": 271331,
+      "totalTokens": 384388,
+      "totalCost": 0.5387998,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 18857,
+          "outputTokens": 2961,
+          "cacheCreationTokens": 64253,
+          "cacheReadTokens": 271331,
+          "cost": 0.42333405
+        },
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 4,
+          "outputTokens": 136,
+          "cacheCreationTokens": 15598,
+          "cacheReadTokens": 0,
+          "cost": 0.10090750000000001
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2,
+          "outputTokens": 133,
+          "cacheCreationTokens": 11113,
+          "cacheReadTokens": 0,
+          "cost": 0.014558250000000002
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-garokid/9ced9d3c-b495-424e-b6a8-7e9d74c1dfbb"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 56,
+      "cacheCreationTokens": 26471,
+      "cacheReadTokens": 0,
+      "totalTokens": 26536,
+      "totalCost": 0.11209675000000001,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 54,
+          "cacheCreationTokens": 15523,
+          "cacheReadTokens": 0,
+          "cost": 0.09839875000000001
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 2,
+          "cacheCreationTokens": 10948,
+          "cacheReadTokens": 0,
+          "cost": 0.013698000000000002
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles-claude/cde90ebf-9f98-421b-8ac6-457728decf8d"
+    },
+    {
+      "sessionId": "-Users-nico-Downloads-Web-workspace-garocode-dotfiles",
+      "inputTokens": 2945,
+      "outputTokens": 608,
+      "cacheCreationTokens": 3069,
+      "cacheReadTokens": 0,
+      "totalTokens": 6622,
+      "totalCost": 0.02355975,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 3,
+          "outputTokens": 606,
+          "cacheCreationTokens": 3069,
+          "cacheReadTokens": 0,
+          "cost": 0.02060775
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2942,
+          "outputTokens": 2,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 0,
+          "cost": 0.0029519999999999998
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 227,
+      "cacheCreationTokens": 32189,
+      "cacheReadTokens": 0,
+      "totalTokens": 32425,
+      "totalCost": 0.13953425,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 94,
+          "cacheCreationTokens": 19250,
+          "cacheReadTokens": 0,
+          "cost": 0.12269250000000001
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 133,
+          "cacheCreationTokens": 12939,
+          "cacheReadTokens": 0,
+          "cost": 0.01684175
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-dotfiles/8ee2cc3f-5c3e-442a-81b4-dc6e7948d3cc"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 9,
+      "outputTokens": 206,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 32189,
+      "totalTokens": 32404,
+      "totalCost": 0.0121619,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 9,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 19250,
+          "cost": 0.00988
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 197,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 12939,
+          "cost": 0.0022819
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-garocode-dotfiles/eceeeb5e-04f5-4284-a437-50c0c2712745"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 19,
+      "outputTokens": 4738,
+      "cacheCreationTokens": 90195,
+      "cacheReadTokens": 27362,
+      "totalTokens": 122314,
+      "totalCost": 0.43308785,
+      "lastActivity": "2026-01-10",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 10,
+          "outputTokens": 4522,
+          "cacheCreationTokens": 77369,
+          "cacheReadTokens": 7954,
+          "cost": 0.36037995
+        },
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 6,
+          "outputTokens": 93,
+          "cacheCreationTokens": 9576,
+          "cacheReadTokens": 9704,
+          "cost": 0.067057
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 123,
+          "cacheCreationTokens": 3250,
+          "cacheReadTokens": 9704,
+          "cost": 0.0056509
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Workspace-unsync-garokid/05664957-7993-45a8-8232-ffb60b138745"
+    },
+    {
+      "sessionId": "-Users-nico--config-opencode",
+      "inputTokens": 1594,
+      "outputTokens": 4,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 0,
+      "totalTokens": 1598,
+      "totalCost": 0.0033580000000000003,
+      "lastActivity": "2026-01-09",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 862,
+          "outputTokens": 2,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 0,
+          "cost": 0.0026160000000000003
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 732,
+          "outputTokens": 2,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 0,
+          "cost": 0.000742
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 3757,
+      "outputTokens": 6,
+      "cacheCreationTokens": 20627,
+      "cacheReadTokens": 0,
+      "totalTokens": 24390,
+      "totalCost": 0.09653075000000001,
+      "lastActivity": "2026-01-09",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 3755,
+          "outputTokens": 4,
+          "cacheCreationTokens": 10372,
+          "cacheReadTokens": 0,
+          "cost": 0.08370000000000001
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2,
+          "outputTokens": 2,
+          "cacheCreationTokens": 10255,
+          "cacheReadTokens": 0,
+          "cost": 0.01283075
+        }
+      ],
+      "projectPath": "-Users-nico/d1937b87-1691-4b90-b185-b623002d1b6e"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 3769,
+      "outputTokens": 11,
+      "cacheCreationTokens": 39614,
+      "cacheReadTokens": 17588,
+      "totalTokens": 60982,
+      "totalCost": 0.12206030000000001,
+      "lastActivity": "2026-01-09",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 3755,
+          "outputTokens": 4,
+          "cacheCreationTokens": 10372,
+          "cacheReadTokens": 0,
+          "cost": 0.08370000000000001
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 14,
+          "outputTokens": 7,
+          "cacheCreationTokens": 29242,
+          "cacheReadTokens": 17588,
+          "cost": 0.0383603
+        }
+      ],
+      "projectPath": "-Users-nico/ccb8c746-6c70-43e7-aa92-f573dda34288"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 3763,
+      "outputTokens": 196,
+      "cacheCreationTokens": 35180,
+      "cacheReadTokens": 108201,
+      "totalTokens": 147340,
+      "totalCost": 0.24516250000000003,
+      "lastActivity": "2026-01-09",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 3761,
+          "outputTokens": 194,
+          "cacheCreationTokens": 24684,
+          "cacheReadTokens": 108201,
+          "cost": 0.23203050000000003
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2,
+          "outputTokens": 2,
+          "cacheCreationTokens": 10496,
+          "cacheReadTokens": 0,
+          "cost": 0.013132000000000001
+        }
+      ],
+      "projectPath": "-Users-nico/0a577cbb-950f-4a35-83d8-7dfe34679a39"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 3757,
+      "outputTokens": 9,
+      "cacheCreationTokens": 280,
+      "cacheReadTokens": 31722,
+      "totalTokens": 35768,
+      "totalCost": 0.0323946,
+      "lastActivity": "2026-01-09",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 3755,
+          "outputTokens": 8,
+          "cacheCreationTokens": 280,
+          "cacheReadTokens": 21226,
+          "cost": 0.031338000000000005
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2,
+          "outputTokens": 1,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 10496,
+          "cost": 0.0010566
+        }
+      ],
+      "projectPath": "-Users-nico/4f839512-7aba-46da-b5a4-afcb7ce24826"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 3757,
+      "outputTokens": 5,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 21109,
+      "totalTokens": 24871,
+      "totalCost": 0.0252381,
+      "lastActivity": "2026-01-09",
+      "modelsUsed": [
+        "claude-opus-4-5-20251101",
+        "claude-haiku-4-5-20251001"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 3755,
+          "outputTokens": 4,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 10613,
+          "cost": 0.0241815
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 2,
+          "outputTokens": 1,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 10496,
+          "cost": 0.0010566
+        }
+      ],
+      "projectPath": "-Users-nico/f62f2aa2-048c-4f99-b073-20c309a03234"
+    },
+    {
+      "sessionId": "subagents",
+      "inputTokens": 3930,
+      "outputTokens": 8,
+      "cacheCreationTokens": 2913,
+      "cacheReadTokens": 29616,
+      "totalTokens": 36467,
+      "totalCost": 0.04280545000000001,
+      "lastActivity": "2026-01-09",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-opus-4-5-20251101",
+          "inputTokens": 3927,
+          "outputTokens": 6,
+          "cacheCreationTokens": 1665,
+          "cacheReadTokens": 20199,
+          "cost": 0.04029075
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 3,
+          "outputTokens": 2,
+          "cacheCreationTokens": 1248,
+          "cacheReadTokens": 9417,
+          "cost": 0.0025147
+        }
+      ],
+      "projectPath": "-Users-nico-Downloads-Web-workspace-unsync-private-notes-dotfiles-claude/6c22630d-1f54-493e-9dc8-5751e53ffa36"
+    },
+    {
+      "sessionId": "-Users-nico-Downloads-Web-workspace-unsync-backend-unsync-backend",
+      "inputTokens": 1916,
+      "outputTokens": 4,
+      "cacheCreationTokens": 0,
+      "cacheReadTokens": 0,
+      "totalTokens": 1920,
+      "totalCost": 0.004002,
+      "lastActivity": "2026-01-03",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 1023,
+          "outputTokens": 2,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 0,
+          "cost": 0.003099
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 893,
+          "outputTokens": 2,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 0,
+          "cost": 0.0009029999999999999
+        }
+      ],
+      "projectPath": "Unknown Project"
+    },
+    {
+      "sessionId": "-Users-nico-Downloads-Web-workspace-unsync-backend-unsync",
+      "inputTokens": 6421,
+      "outputTokens": 428,
+      "cacheCreationTokens": 126739,
+      "cacheReadTokens": 560646,
+      "totalTokens": 694234,
+      "totalCost": 0.66734605,
+      "lastActivity": "2026-01-03",
+      "modelsUsed": [
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929"
+      ],
+      "modelBreakdowns": [
+        {
+          "modelName": "claude-sonnet-4-5-20250929",
+          "inputTokens": 5530,
+          "outputTokens": 426,
+          "cacheCreationTokens": 126739,
+          "cacheReadTokens": 560646,
+          "cost": 0.6664450500000001
+        },
+        {
+          "modelName": "claude-haiku-4-5-20251001",
+          "inputTokens": 891,
+          "outputTokens": 2,
+          "cacheCreationTokens": 0,
+          "cacheReadTokens": 0,
+          "cost": 0.000901
+        }
+      ],
+      "projectPath": "Unknown Project"
+    }
+  ],
+  "totals": {
+    "inputTokens": 142904,
+    "outputTokens": 43414,
+    "cacheCreationTokens": 3306428,
+    "cacheReadTokens": 20050810,
+    "totalCost": 26.259796399999995,
+    "totalTokens": 23543556
+  }
+}

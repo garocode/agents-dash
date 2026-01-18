@@ -1,0 +1,50 @@
+{
+  "weekly": [
+    {
+      "week": "2026-W02",
+      "inputTokens": 2354695,
+      "outputTokens": 162416,
+      "cacheCreationTokens": 506293,
+      "cacheReadTokens": 13062889,
+      "totalTokens": 16086293,
+      "totalCost": 6.475725799999997,
+      "modelsUsed": [
+        "claude-opus-4.5",
+        "claude-opus-4-5",
+        "gpt-5.2",
+        "gpt-5.2-codex",
+        "antigravity-gemini-3-flash",
+        "claude-sonnet-4-5"
+      ]
+    },
+    {
+      "week": "2026-W03",
+      "inputTokens": 7553634,
+      "outputTokens": 468377,
+      "cacheCreationTokens": 1068794,
+      "cacheReadTokens": 37024623,
+      "totalTokens": 46115428,
+      "totalCost": 22.075020999999985,
+      "modelsUsed": [
+        "gemini-3-flash-preview",
+        "claude-sonnet-4-5",
+        "claude-haiku-4-5",
+        "gpt-5.2",
+        "gpt-5.2-codex",
+        "claude-opus-4-5",
+        "claude-3-5-haiku-latest",
+        "minimax-m2.1-free",
+        "z-ai/glm-4.7",
+        "claude-opus-4.5"
+      ]
+    }
+  ],
+  "totals": {
+    "inputTokens": 9908329,
+    "outputTokens": 630793,
+    "cacheCreationTokens": 1575087,
+    "cacheReadTokens": 50087512,
+    "totalTokens": 62201721,
+    "totalCost": 28.55074679999998
+  }
+}

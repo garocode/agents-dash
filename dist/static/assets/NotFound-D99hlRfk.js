@@ -1,0 +1,1 @@
+import{j as o,L as t}from"../client.js";function n(){return o.jsxs("div",{children:[o.jsx("h1",{children:"404 - Page Not Found"}),o.jsx(t,{to:"/",children:"Back to Overview"})]})}export{n as default};

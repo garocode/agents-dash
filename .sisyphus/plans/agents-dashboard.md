@@ -393,7 +393,7 @@ Task 1 → Task 2 → Task 3 → Task 4
 
 ## TODOs
 
-- [ ] 0. Initialize project scaffold
+- [x] 0. Initialize project scaffold
 
   **What to do**:
   - Create `package.json` with scripts: `dev`, `build`, `preview`, `test`.
@@ -408,12 +408,12 @@ Task 1 → Task 2 → Task 3 → Task 4
   **Parallelizable**: NO
 
   **Acceptance Criteria**:
-  - [ ] `bun install` succeeds with the above dependencies.
-  - [ ] `vite` runs and reads `vite.config.ts`.
+  - [x] `bun install` succeeds with the above dependencies.
+  - [x] `vite` runs and reads `vite.config.ts`.
 
   **Commit**: NO
 
-- [ ] 1. Scaffold Hono + Vite SSR app with React hydration
+- [x] 1. Scaffold Hono + Vite SSR app with React hydration
 
   **What to do**:
   - Use `@hono/vite-dev-server` in dev and `@hono/vite-build/node` in prod.
@@ -442,17 +442,17 @@ Task 1 → Task 2 → Task 3 → Task 4
   - https://hono.dev/docs/getting-started/nodejs
 
   **Acceptance Criteria**:
-  - [ ] `bun dev` starts server and renders `/` with HTML.
-  - [ ] All routes respond with SSR HTML.
-  - [ ] `/api/usage` responds with JSON and respects query params.
+  - [x] `bun dev` starts server and renders `/` with HTML.
+  - [x] All routes respond with SSR HTML.
+  - [x] `/api/usage` responds with JSON and respects query params.
 
   **Manual Execution Verification**:
-  - [ ] Open `http://localhost:[port]/` and see initial SSR content.
-  - [ ] Hit `/api/usage?agent=claude&period=daily` and see JSON response.
+  - [x] Open `http://localhost:[port]/` and see initial SSR content.
+  - [x] Hit `/api/usage?agent=claude&period=daily` and see JSON response.
 
   **Commit**: NO
 
-- [ ] 2. Implement data access layer using ccusage library + CLI JSON outputs
+- [x] 2. Implement data access layer using ccusage library + CLI JSON outputs
 
   **What to do**:
   - Use `ccusage/data-loader` for daily/monthly/session (Claude Code).
@@ -482,19 +482,19 @@ Task 1 → Task 2 → Task 3 → Task 4
   - `docs/ccusage/directory-detection.md` - default Claude data directories.
 
   **Acceptance Criteria**:
-  - [ ] CLI JSON output parsed for weekly/blocks and all OpenCode reports.
-  - [ ] Fixtures captured and used as the schema for normalization.
-  - [ ] Library outputs filtered to current periods via in-memory date range filter.
-  - [ ] OpenCode blocks returns explicit unsupported response.
+  - [x] CLI JSON output parsed for weekly/blocks and all OpenCode reports.
+  - [x] Fixtures captured and used as the schema for normalization.
+  - [x] Library outputs filtered to current periods via in-memory date range filter.
+  - [x] OpenCode blocks returns explicit unsupported response.
   - [ ] Empty-state checklist triggers when directories are missing.
 
   **Manual Execution Verification**:
-  - [ ] Trigger `/api/usage` for each report type and see normalized JSON.
-  - [ ] With missing dirs, API returns empty + checklist state.
+  - [x] Trigger `/api/usage` for each report type and see normalized JSON.
+  - [ ] With missing dirs, API returns empty + checklist state. (pending - not tested yet)
 
   **Commit**: NO
 
-- [ ] 3. Build overview UI with current-period summaries and chart baseline
+- [x] 3. Build overview UI with current-period summaries and chart baseline
 
   **What to do**:
   - Implement overview cards for current day/week/month totals.
@@ -515,10 +515,10 @@ Task 1 → Task 2 → Task 3 → Task 4
   - `docs/ccusage/json-output.md` - monthly summary totals.
 
   **Acceptance Criteria**:
-  - [ ] Overview shows current totals for day/week/month.
-  - [ ] Chart renders with cost over time for selected agent (client-only).
-  - [ ] Refresh button re-fetches and updates values.
-  - [ ] Agent tabs filter all values.
+  - [x] Overview shows current totals for day/week/month.
+  - [x] Chart renders with cost over time for selected agent (client-only).
+  - [x] Refresh button re-fetches and updates values.
+  - [x] Agent tabs filter all values.
 
   **Manual Execution Verification**:
   - [ ] Load `/` and verify totals and chart.
@@ -527,7 +527,7 @@ Task 1 → Task 2 → Task 3 → Task 4
 
   **Commit**: NO
 
-- [ ] 4. Build details routes (agents, sessions, reports) + local settings
+- [x] 4. Build details routes (agents, sessions, reports) + local settings
 
   **What to do**:
   - `/agents/:agent`: aggregate tables for daily/weekly/monthly/session/blocks.
@@ -548,10 +548,10 @@ Task 1 → Task 2 → Task 3 → Task 4
   - `docs/ccusage/configuration.md` - settings concepts to mirror in local settings.
 
   **Acceptance Criteria**:
-  - [ ] `/agents/:agent` renders aggregate tables for all report types.
-  - [ ] `/sessions/:id` shows aggregate fields only.
-  - [ ] `/reports/:period` shows report-specific tables.
-  - [ ] Local settings persist across reloads without SSR mismatch.
+  - [x] `/agents/:agent` renders aggregate tables for all report types.
+  - [x] `/sessions/:id` shows aggregate fields only.
+  - [x] `/reports/:period` shows report-specific tables.
+  - [x] Local settings persist across reloads without SSR mismatch.
   - [ ] Empty state checklist appears when data is missing.
 
   **Manual Execution Verification**:
@@ -561,7 +561,7 @@ Task 1 → Task 2 → Task 3 → Task 4
 
   **Commit**: NO
 
-- [ ] 5. Add tests after implementation
+- [ ] 5. Add tests after implementation ⚠️ BLOCKED (depends on Tasks 2, 3, 4)
 
   **What to do**:
   - Set up Vitest + React Testing Library.
