@@ -16,3 +16,7 @@ if (root) {
     </BrowserRouter>
   )
 }
+
+if (import.meta.hot) {
+  import.meta.hot.accept()
+}
