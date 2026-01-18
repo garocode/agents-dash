@@ -93,17 +93,27 @@
 - `src/entry-client.tsx`
 - `src/routes.tsx`
 
-## Task 4: Details Routes + Settings ⚠️ BLOCKED (pending)
+## Task 4: Details Routes + Settings ✅
 
-**Blocker**: UI for details not implemented yet
+### Implemented
+- Agent details dashboard with settings and empty-state checklist
+- Session details view with settings and error handling
+- Report details view with agent selector, chart, and table
+- Local settings persisted to localStorage with SSR guards
 
-## Task 5: Tests ⚠️ BLOCKED (depends on Tasks 3, 4)
+### Files Updated
+- `src/pages/AgentDetails.tsx`
+- `src/pages/SessionDetails.tsx`
+- `src/pages/ReportDetails.tsx`
 
-**Blocker**: Requires Task 4 completion
+## Task 5: Tests ⚠️ BLOCKED (depends on Task 4)
+
+**Blocker**: Tests not written yet
 
 ---
 
 ## Fixtures Captured (2026-01-18) ✅
+
 
 **Status**: All 9 fixtures successfully captured
 

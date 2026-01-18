@@ -53,19 +53,36 @@ app.get('*', async (c) => {
 
   const initialStateJson = JSON.stringify(initialState).replace(/</g, '\u003c')
 
+  const isDev = process.env.NODE_ENV !== 'production'
+  const viteClientScript = isDev ? '<script type="module" src="/@vite/client"></script>' : ''
+  const reactRefreshScript = isDev
+    ? `<script type="module">
+      import RefreshRuntime from "/@react-refresh"
+      RefreshRuntime.injectIntoGlobalHook(window)
+      window.$RefreshReg$ = () => {}
+      window.$RefreshSig$ = () => (type) => type
+      window.__vite_plugin_react_preamble_installed__ = true
+    </script>`
+    : ''
+  const clientEntryScript = isDev
+    ? '<script type="module" src="/src/entry-client.tsx"></script>'
+    : '<script type="module" src="/static/client.js"></script>'
+
   const htmlContent = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agents Dashboard</title>
+  ${viteClientScript}
+  ${reactRefreshScript}
 </head>
 <body>
   <div id="root">${html}</div>
   <script>
     window.__INITIAL_STATE__ = ${initialStateJson}
   </script>
-  <script type="module" src="/src/entry-client.tsx"></script>
+  ${clientEntryScript}
 </body>
 </html>`
 
